@@ -15,22 +15,16 @@
 
 
 
-<meta name="description" content="1.    for循环第一种：一般的for循环 1234var a = new Array(&quot;first&quot;, &quot;second&quot;, &quot;third&quot;);for(var i = 0;i &amp;lt; a.length; i++) &amp;#123;   document.write(a[i]+&quot;,&quot;);&amp;#125;
-输出的结果：first,second,third
-第二种：用for…in 这种遍历的方式 1234">
+<meta name="description" content="js的循环遍历用的比较多的是for循环，但是除了for循环，我们还有内置的一些循环可以使用，比如every、filter、map">
 <meta property="og:type" content="article">
 <meta property="og:title" content="循环遍历">
 <meta property="og:url" content="http://yoursite.com/2016/08/11/循环遍历/index.html">
 <meta property="og:site_name" content="Lynn's Blog">
-<meta property="og:description" content="1.    for循环第一种：一般的for循环 1234var a = new Array(&quot;first&quot;, &quot;second&quot;, &quot;third&quot;);for(var i = 0;i &amp;lt; a.length; i++) &amp;#123;   document.write(a[i]+&quot;,&quot;);&amp;#125;
-输出的结果：first,second,third
-第二种：用for…in 这种遍历的方式 1234">
-<meta property="og:updated_time" content="2016-08-12T09:45:20.058Z">
+<meta property="og:description" content="js的循环遍历用的比较多的是for循环，但是除了for循环，我们还有内置的一些循环可以使用，比如every、filter、map">
+<meta property="og:updated_time" content="2016-08-19T07:33:59.005Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="循环遍历">
-<meta name="twitter:description" content="1.    for循环第一种：一般的for循环 1234var a = new Array(&quot;first&quot;, &quot;second&quot;, &quot;third&quot;);for(var i = 0;i &amp;lt; a.length; i++) &amp;#123;   document.write(a[i]+&quot;,&quot;);&amp;#125;
-输出的结果：first,second,third
-第二种：用for…in 这种遍历的方式 1234">
+<meta name="twitter:description" content="js的循环遍历用的比较多的是for循环，但是除了for循环，我们还有内置的一些循环可以使用，比如every、filter、map">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -39,11 +33,9 @@
 
 
 
-    <link rel="shortcut icon" href="/favicon.png">
+    <link rel="shortcut icon" href="/img/hahaha.jpg">
 
 
-
-    <link href="//cdn.bootcss.com/animate.css/3.5.1/animate.min.css" rel="stylesheet">
 
 
 
@@ -70,7 +62,7 @@
 <script>
     var yiliaConfig = {
         fancybox: true,
-        animate: true,
+        animate: false,
         isHome: false,
         isPost: true,
         isArchive: false,
@@ -165,7 +157,7 @@
                         
                             <li><a href="/archives/">所有文章</a></li>
                         
-                            <li><a href="/about/">关于我</a></li>
+                            <li><a href="/tags/">标签云</a></li>
                         
                         </ul>
                     </nav>
@@ -242,7 +234,7 @@
                 
                     <li><a href="/archives/">所有文章</a></li>
                 
-                    <li><a href="/about/">关于我</a></li>
+                    <li><a href="/tags/">标签云</a></li>
                 
                 <div class="clearfix"></div>
                 </ul>
@@ -309,7 +301,7 @@
         <h3 id="1-for循环"><a href="#1-for循环" class="headerlink" title="1.    for循环"></a>1.    for循环</h3><h4 id="第一种：一般的for循环"><a href="#第一种：一般的for循环" class="headerlink" title="第一种：一般的for循环"></a>第一种：一般的for循环</h4> <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var a = new Array(<span class="string">"first"</span>, <span class="string">"second"</span>, <span class="string">"third"</span>);</div><div class="line"><span class="keyword">for</span>(var i = 0;i &lt; a.length; i++) &#123;</div><div class="line">   document.write(a[i]+<span class="string">","</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>输出的结果：first,second,third</p>
 <h4 id="第二种：用for…in-这种遍历的方式"><a href="#第二种：用for…in-这种遍历的方式" class="headerlink" title="第二种：用for…in 这种遍历的方式"></a>第二种：用for…in 这种遍历的方式</h4> <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var arr = new Array(<span class="string">"first"</span>, <span class="string">"second"</span>, <span class="string">"third"</span>);</div><div class="line"><span class="keyword">for</span>(var item <span class="keyword">in</span> arr) &#123;</div><div class="line">   document.write(arr[item]+<span class="string">","</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>输出的结果：first,second,third</p>
+<p>输出的结果：first,second,third<br><code>注意： for...in这种循环主要用于对象</code></p>
 <h4 id="扩展内容：一般将for循环中的变量放在外面"><a href="#扩展内容：一般将for循环中的变量放在外面" class="headerlink" title="扩展内容：一般将for循环中的变量放在外面"></a>扩展内容：一般将for循环中的变量放在外面</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">var arr = [<span class="string">"first"</span>, <span class="string">"second"</span>, <span class="string">"third"</span>],</div><div class="line">    i,</div><div class="line">    len = arr.length;</div><div class="line"><span class="keyword">for</span>(i = 0;i &lt; len; i++) &#123;</div><div class="line">     document.write(a[i]+<span class="string">","</span>);</div><div class="line">  &#125;</div></pre></td></tr></table></figure>
 <p>将变量放在循环外面，可以减少性能的消耗</p>
 <h3 id="2-while循环"><a href="#2-while循环" class="headerlink" title="2.  while循环"></a>2.  while循环</h3><h4 id="第一种：while-循环会在指定条件为真时循环执行代码块"><a href="#第一种：while-循环会在指定条件为真时循环执行代码块" class="headerlink" title="第一种：while 循环会在指定条件为真时循环执行代码块"></a>第一种：while 循环会在指定条件为真时循环执行代码块</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">while</span> (条件)&#123;</div><div class="line">    需要执行的代码</div><div class="line">&#125;</div></pre></td></tr></table></figure>
@@ -321,8 +313,25 @@
 <p>forEach是将数组中的每个元素进行循环遍历，如果数组为二维数组，即[[‘1’,’2’],[‘3’,’4’]]，循环也是从’1’开始进行循环，此种只可意会，言传暂时还无法。<br>扩展：concat()方法用于连接两个或多个数组。该方法不会改变现有的数组，而仅仅会返回被连接数组的一个副本。<br>      返回一个新的数组。该数组是通过把所有 arrayX 参数添加到 arrayObject 中生成的。如果要进行 concat() 操作的参数是数组，那么添加的是数组中的元素，而不是数组。</p>
 <h3 id="4-跳出循环"><a href="#4-跳出循环" class="headerlink" title="4.   跳出循环"></a>4.   跳出循环</h3><h4 id="break和continue语句"><a href="#break和continue语句" class="headerlink" title="break和continue语句"></a>break和continue语句</h4><p>  <code>break语句会立即退出循环，强制继续执行循环后面的语句</code><br>  <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">var num = 0;</div><div class="line"><span class="keyword">for</span>(var i=1; i&lt;10;i++)&#123;</div><div class="line">  <span class="keyword">if</span>(i%5 == 0)&#123;</div><div class="line">    <span class="built_in">break</span>;</div><div class="line">  &#125;</div><div class="line">  num++;</div><div class="line">&#125;</div><div class="line">console.log(num);</div></pre></td></tr></table></figure></p>
 <p>  输出结果为：4；</p>
-<p>  <code>continue语句虽然也是立即跳出循环，但退出循环后会从循环的顶部继续执行</code><br>  <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">var num = 0;</div><div class="line"><span class="keyword">for</span>(var i=1; i&lt;10;i++)&#123;</div><div class="line">  <span class="keyword">if</span>(i%5 == 0)&#123;</div><div class="line">    <span class="built_in">continue</span>;</div><div class="line">  &#125;</div><div class="line">  num++;</div><div class="line">&#125;</div><div class="line">console.log(num);</div></pre></td></tr></table></figure></p>
+<p>  <code>continue语句是跳过continue后面执行的内容，再进入for循环之中</code><br>  <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">var num = 0;</div><div class="line"><span class="keyword">for</span>(var i=1; i&lt;10;i++)&#123;</div><div class="line">  <span class="keyword">if</span>(i%5 == 0)&#123;</div><div class="line">    <span class="built_in">continue</span>;</div><div class="line">  &#125;</div><div class="line">  num++;</div><div class="line">&#125;</div><div class="line">console.log(num);</div></pre></td></tr></table></figure></p>
 <p>  输出结果为：8</p>
+<hr>
+<p>Array 的五种迭代方法 —–every() /filter() /forEach() /map() /some()<br>　　ES5定义了五个迭代方法，每个方法都接收两个参数：要在每一项上运行的函数和运行该函数的作用域对象（可选的），作用域对象将影响this的值。传入这些方法中的函数会接收三个参数：数组的项的值、该项在数组中的位置和数组对象本身。</p>
+<h4 id="1-every-和-some"><a href="#1-every-和-some" class="headerlink" title="1.every() 和 some()"></a>1.every() 和 some()</h4><pre><code>every()是对数组中的每一项运行给定函数，如果该函数对每一项都返回true，则返回true。
+some()是对数组中的每一项运行给定函数，如果该函数对任一项返回true，则返回true。
+
+every()和some()很相似，他们都用于查询数组中的项是否满足某个条件，对every()来说，传入的函数必须对每一项都返回true，这个方法才返回true；否则，则返回false。而some()方法则只要传入的函数对数组中的某一项返回true，就会返回true。
+</code></pre><p>例如：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">var numbers=[1,2,3,4,5,4,3,2,1];</div><div class="line">var everyResult=numbers.every(<span class="keyword">function</span>(item,index,array)&#123;</div><div class="line">    <span class="built_in">return</span> (item&gt;2);</div><div class="line">&#125;);</div><div class="line">alert(everyResult);//<span class="literal">false</span></div><div class="line"></div><div class="line">var someResult=numbers.some(<span class="keyword">function</span>(item,index,array)&#123;</div><div class="line">    <span class="built_in">return</span> (item&gt;2);</div><div class="line">&#125;);</div><div class="line">alert(someResult);//<span class="literal">true</span></div></pre></td></tr></table></figure></p>
+<p>以上代码调用了every()和some(),传入的函数只要给定项大于2就会返回true。对于every()，它返回的是false，因为只有部分数组符合条件 ; 而对于some()，结果就是true，因为至少有一项是大于2的。</p>
+<h4 id="2-filter"><a href="#2-filter" class="headerlink" title="2.filter()"></a>2.filter()</h4><p>  filter()是对数组中的每一项运行给定函数，返回该函数会返回true的项所组成的数组。它利用指定的函数确定是否在返回的数组中包含某一项。</p>
+<p>例如：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">var numbers=[1,2,3,4,5,4,3,2,1];</div><div class="line">var filterResult=numbers.filter(<span class="keyword">function</span>(item,index,array)&#123;</div><div class="line">    <span class="built_in">return</span> (item&gt;2);</div><div class="line">&#125;);</div><div class="line">alter(filterResult); //[3,4,5,4,3];</div></pre></td></tr></table></figure></p>
+<p>此例子中，传入的函数要返回一个所有数值都大于2的数组，通过调用filter()方法创建并返回了包含3/4/5/4/3的数组，因为传入的函数对它们的每一项都返回true。这个方法对查询符合某些条件的所有数组项非常有用。</p>
+<h4 id="3-map"><a href="#3-map" class="headerlink" title="3.map()"></a>3.map()</h4><p>  map()是对数组中的每一项运行给定函数，返回每次函数调用的结果组成的数组。这个数组的每一项都是在原始数据中的对应项上运行传入函数的结果。</p>
+<p>例如：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">var numbers=[1,2,3,4,5,4,3,2,1];</div><div class="line">var mapResult=numbers.map(<span class="keyword">function</span>(item,index,array)&#123;</div><div class="line">    <span class="built_in">return</span> item*2;</div><div class="line">&#125;);</div><div class="line">alert(mapResult); //[2,4,6,8,10,8,6,4,2]</div></pre></td></tr></table></figure></p>
+<p>以上代码返回的数组中包含每个数乘以2之后的结果，这个方法适合创建包含的项与另一个数组一一对应的数组。</p>
+<p>4.forEach()<br>  forEach() 是多数组中的每一项运行给定函数，这个方法没有返回值。它只是对数组中的每一项运行传入的函数，没有返回值。本质上与使用for循环迭代数组一样。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var numbers=[1,2,3,4,5,4,3,2,1];</div><div class="line">numbers.forEach(<span class="keyword">function</span>(iterm,index,array)&#123;</div><div class="line">    //执行某些操作</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>总结：这些数组方法通过执行不同的操作可以大大方便处理数组的任务，支持这些迭代方法的浏览器有IE9+、Firfox2+、Safari3+、Opera9.5、Chrome。</p>
 
       
     </div>
@@ -355,7 +364,7 @@
     <div id="toc" class="toc-article">
         <strong class="toc-title">文章目录</strong>
         
-            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-for循环"><span class="toc-number">1.</span> <span class="toc-text">1.    for循环</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#第一种：一般的for循环"><span class="toc-number">1.1.</span> <span class="toc-text">第一种：一般的for循环</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#第二种：用for…in-这种遍历的方式"><span class="toc-number">1.2.</span> <span class="toc-text">第二种：用for…in 这种遍历的方式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#扩展内容：一般将for循环中的变量放在外面"><span class="toc-number">1.3.</span> <span class="toc-text">扩展内容：一般将for循环中的变量放在外面</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-while循环"><span class="toc-number">2.</span> <span class="toc-text">2.  while循环</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#第一种：while-循环会在指定条件为真时循环执行代码块"><span class="toc-number">2.1.</span> <span class="toc-text">第一种：while 循环会在指定条件为真时循环执行代码块</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#第二种：do-while-循环是-while-循环的变体。该循环会执行一次代码块，在检查条件是否为真之前，然后如果条件为真的话，就会重复这个循环。"><span class="toc-number">2.2.</span> <span class="toc-text">第二种：do/while 循环是 while 循环的变体。该循环会执行一次代码块，在检查条件是否为真之前，然后如果条件为真的话，就会重复这个循环。</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-forEach循环"><span class="toc-number">3.</span> <span class="toc-text">3.   forEach循环</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-跳出循环"><span class="toc-number">4.</span> <span class="toc-text">4.   跳出循环</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#break和continue语句"><span class="toc-number">4.1.</span> <span class="toc-text">break和continue语句</span></a></li></ol></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-for循环"><span class="toc-number">1.</span> <span class="toc-text">1.    for循环</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#第一种：一般的for循环"><span class="toc-number">1.1.</span> <span class="toc-text">第一种：一般的for循环</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#第二种：用for…in-这种遍历的方式"><span class="toc-number">1.2.</span> <span class="toc-text">第二种：用for…in 这种遍历的方式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#扩展内容：一般将for循环中的变量放在外面"><span class="toc-number">1.3.</span> <span class="toc-text">扩展内容：一般将for循环中的变量放在外面</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-while循环"><span class="toc-number">2.</span> <span class="toc-text">2.  while循环</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#第一种：while-循环会在指定条件为真时循环执行代码块"><span class="toc-number">2.1.</span> <span class="toc-text">第一种：while 循环会在指定条件为真时循环执行代码块</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#第二种：do-while-循环是-while-循环的变体。该循环会执行一次代码块，在检查条件是否为真之前，然后如果条件为真的话，就会重复这个循环。"><span class="toc-number">2.2.</span> <span class="toc-text">第二种：do/while 循环是 while 循环的变体。该循环会执行一次代码块，在检查条件是否为真之前，然后如果条件为真的话，就会重复这个循环。</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-forEach循环"><span class="toc-number">3.</span> <span class="toc-text">3.   forEach循环</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-跳出循环"><span class="toc-number">4.</span> <span class="toc-text">4.   跳出循环</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#break和continue语句"><span class="toc-number">4.1.</span> <span class="toc-text">break和continue语句</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-every-和-some"><span class="toc-number">4.2.</span> <span class="toc-text">1.every() 和 some()</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-filter"><span class="toc-number">4.3.</span> <span class="toc-text">2.filter()</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-map"><span class="toc-number">4.4.</span> <span class="toc-text">3.map()</span></a></li></ol></li></ol>
         
     </div>
     <style>
@@ -425,7 +434,7 @@
         
     </div>
 
-    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2016/08/12/css动画/">CSS动画</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/12/jsonp/">jsonp</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/11/循环遍历/">循环遍历</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/02/markdown的使用/">markdown常用语法</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/01/搭建hexo中遇到的问题/">搭建hexo，出现的问题</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/01/我的第一篇博客/">我的第一篇博客</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/01/hello-world/">Hello World</a></li></ul>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2016/08/19/开发中遇到的问题/">开发中遇到的问题</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/12/css动画/">CSS动画</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/12/jsonp/">jsonp</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/11/循环遍历/">循环遍历</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/02/markdown的使用/">markdown常用语法</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/01/搭建hexo中遇到的问题/">搭建hexo，出现的问题</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/01/我的第一篇博客/">我的第一篇博客</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/01/hello-world/">Hello World</a></li></ul>
 
 
 
@@ -442,7 +451,8 @@
                 2016 Lynn
             </div>
             <div class="footer-right">
-                <a href="http://hexo.io/" target="_blank" title="快速、简洁且高效的博客框架">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="简而不减 Hexo 双栏博客主题  v3.5">Yelee</a> by MOxFIVE <i class="fa fa-heart animated infinite pulse"></i>
+                <!--<a href="http://hexo.io/" target="_blank" title="快速、简洁且高效的博客框架">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="简而不减 Hexo 双栏博客主题  v3.5">Yelee</a> by Lynn <i class="fa fa-heart animated infinite pulse"></i>-->
+                <a href="http://hexo.io/" target="_blank" title="快速、简洁且高效的博客框架">Hexo</a>  Theme Yelee by Lynn <i class="fa fa-heart animated infinite pulse"></i>
             </div>
         </div>
         
