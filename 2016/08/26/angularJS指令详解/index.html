@@ -27,7 +27,7 @@
 <meta property="og:image" content="http://yoursite.com/../../../../../img/26014316_ukGT.png">
 <meta property="og:image" content="http://yoursite.com/../../../../../img/26014316_vSCa.png">
 <meta property="og:image" content="http://yoursite.com/../../../../../img/26014316_jztx.png">
-<meta property="og:updated_time" content="2016-08-26T07:15:54.025Z">
+<meta property="og:updated_time" content="2016-08-29T05:55:28.015Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="angularJS指令的API">
 <meta name="twitter:description" content="angularJS-direction指令的详细讲述">
@@ -390,7 +390,7 @@
 <p>运行代码，并在input中输入颜色值，结果为<br><img src="../../../../../img/26014315_Q0Gy.png" alt=""></p>
 <p>但是，但我们将scope设置为{}时候，再次运行上面的代码可以发现页面并不能成功完整显示！</p>
 <p>原因在于，这里我们将scope设置为{}，产生了隔离作用域。</p>
-<p>所以在template模板中变成了依赖于自己的作用域，而不是依赖于父作用域。</p>
+<p>所以在template模板中变量color变成了依赖于自己的作用域，而不是依赖于父作用域。</p>
 <p>因此我们需要一些办法来让隔离作用域能读取父作用域的属性，就是绑定策略。</p>
 <p>下面我们就来探索设置这种绑定的几种方法</p>
 <p>方法一：使用@（@attr）来进行单向文本（字符串）绑定</p>
@@ -526,6 +526,12 @@
 
     <nav id="article-nav">
         
+            <div id="article-nav-newer" class="article-nav-title">
+                <a href="/2016/08/29/angularJS过滤器详解/">
+                    angularJS过滤器详解
+                </a>
+            </div>
+        
         
             <div id="article-nav-older" class="article-nav-title">
                 <a href="/2016/08/19/开发中遇到的问题/">
@@ -597,7 +603,9 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
+            <a href="/2016/08/29/angularJS过滤器详解/" title="上一篇: angularJS过滤器详解">
+                <i class="fa fa-angle-left"></i>
+            </a>
         
 
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
@@ -609,7 +617,7 @@
         
     </div>
 
-    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2016/08/26/angularJS指令详解/">angularJS指令的API</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/19/开发中遇到的问题/">开发中遇到的问题</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/12/css动画/">CSS动画</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/12/jsonp/">jsonp</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/11/循环遍历/">循环遍历</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/02/markdown的使用/">markdown常用语法</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/01/搭建hexo中遇到的问题/">搭建hexo，出现的问题</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/01/我的第一篇博客/">我的第一篇博客</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/01/hello-world/">Hello World</a></li></ul>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2016/08/29/angularJS过滤器详解/">angularJS过滤器详解</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/26/angularJS指令详解/">angularJS指令的API</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/19/开发中遇到的问题/">开发中遇到的问题</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/12/css动画/">CSS动画</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/12/jsonp/">jsonp</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/11/循环遍历/">循环遍历</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/02/markdown的使用/">markdown常用语法</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/01/搭建hexo中遇到的问题/">搭建hexo，出现的问题</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/01/我的第一篇博客/">我的第一篇博客</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/01/hello-world/">Hello World</a></li></ul>
 
 
 
