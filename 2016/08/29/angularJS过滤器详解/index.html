@@ -15,16 +15,16 @@
 
 
 
-<meta name="description" content="angularJS过滤器详解">
+<meta name="description" content="angularJS-filter过滤器详解">
 <meta property="og:type" content="article">
-<meta property="og:title" content="angularJS过滤器详解">
+<meta property="og:title" content="angularJS-filter过滤器详解">
 <meta property="og:url" content="http://yoursite.com/2016/08/29/angularJS过滤器详解/index.html">
 <meta property="og:site_name" content="Lynn's Blog">
-<meta property="og:description" content="angularJS过滤器详解">
-<meta property="og:updated_time" content="2016-08-29T09:18:42.139Z">
+<meta property="og:description" content="angularJS-filter过滤器详解">
+<meta property="og:updated_time" content="2016-08-30T08:02:22.720Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="angularJS过滤器详解">
-<meta name="twitter:description" content="angularJS过滤器详解">
+<meta name="twitter:title" content="angularJS-filter过滤器详解">
+<meta name="twitter:description" content="angularJS-filter过滤器详解">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -54,7 +54,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>angularJS过滤器详解 | Lynn&#39;s Blog</title>
+<title>angularJS-filter过滤器详解 | Lynn&#39;s Blog</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -277,7 +277,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      angularJS过滤器详解
+      angularJS-filter过滤器详解
     </h1>
   
 
@@ -331,7 +331,7 @@
 <h3 id="自定义过滤器"><a href="#自定义过滤器" class="headerlink" title="自定义过滤器"></a>自定义过滤器</h3><p>filter的自定义方式也很简单，使用module的filter方法，返回一个函数，该函数接收输入值，并返回处理后的结果。话不多说，我们来写一个看看。比如我需要一个过滤器，它可以返回一个数组中下标为奇数的元素，代码如下：</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">app.filter(<span class="string">'odditems'</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params">inputArray</span>)</span>&#123;</div><div class="line">        <span class="keyword">var</span> array = [];</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;inputArray.length;i++)&#123;</div><div class="line">            <span class="keyword">if</span>(i%<span class="number">2</span>!==<span class="number">0</span>)&#123;</div><div class="line">                array.push(inputArray[i]);</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> array;</div><div class="line">    &#125;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
 <p>格式就是这样，你的处理逻辑就写在内部的那个闭包函数中。你也可以让自己的过滤器接收参数，参数就定义在return的那个函数中，作为第二个参数，或者更多个参数也可以。</p>
-<p>原文地址：<a href="http://www.cnblogs.com/lvdabao/p/3475426.html?utm_source=tuicool&amp;utm_medium=referral" target="_blank" rel="external">http://www.cnblogs.com/lvdabao/p/3475426.html?utm_source=tuicool&amp;utm_medium=referral</a></p>
+<p>原文地址：<a href="http://www.cnblogs.com/lvdabao/p/3475426.html?utm_source=tuicool&amp;utm_medium=referral" target="_blank" rel="external">http://www.cnblogs.com/lvdabao/p/3475426.html</a></p>
 
       
     </div>
@@ -343,10 +343,16 @@
 
     <nav id="article-nav">
         
+            <div id="article-nav-newer" class="article-nav-title">
+                <a href="/2016/08/29/angularJS模板中常用指令/">
+                    angularJS模板中常用指令
+                </a>
+            </div>
+        
         
             <div id="article-nav-older" class="article-nav-title">
                 <a href="/2016/08/26/angularJS指令详解/">
-                    angularJS指令的API
+                    angularJS-direction指令的API
                 </a>
             </div>
         
@@ -394,7 +400,7 @@
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"angularJS过滤器详解　| Lynn's Blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"angularJS-filter过滤器详解　| Lynn's Blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -414,19 +420,21 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
+            <a href="/2016/08/29/angularJS模板中常用指令/" title="上一篇: angularJS模板中常用指令">
+                <i class="fa fa-angle-left"></i>
+            </a>
         
 
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2016/08/26/angularJS指令详解/" title="下一篇: angularJS指令的API">
+            <a href="/2016/08/26/angularJS指令详解/" title="下一篇: angularJS-direction指令的API">
                 <i class="fa fa-angle-right"></i>
             </a>
         
     </div>
 
-    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2016/08/29/angularJS过滤器详解/">angularJS过滤器详解</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/26/angularJS指令详解/">angularJS指令的API</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/19/开发中遇到的问题/">开发中遇到的问题</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/12/css动画/">CSS动画</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/12/jsonp/">jsonp</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/11/循环遍历/">循环遍历</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/02/markdown的使用/">markdown常用语法</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/01/搭建hexo中遇到的问题/">搭建hexo，出现的问题</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/01/我的第一篇博客/">我的第一篇博客</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/01/hello-world/">Hello World</a></li></ul>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2016/08/29/angularJS模板中常用指令/">angularJS模板中常用指令</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/29/angularJS过滤器详解/">angularJS-filter过滤器详解</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/26/angularJS指令详解/">angularJS-direction指令的API</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/19/开发中遇到的问题/">开发中遇到的问题</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/12/css动画/">CSS动画</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/12/jsonp/">jsonp</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/11/循环遍历/">循环遍历</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/02/markdown的使用/">markdown常用语法</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/01/搭建hexo中遇到的问题/">搭建hexo，出现的问题</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/01/我的第一篇博客/">我的第一篇博客</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/01/hello-world/">Hello World</a></li></ul>
 
 
 
