@@ -15,18 +15,19 @@
 
 
 
-<meta name="description" content="angularJS模板中常用指令的详细讲述">
+<meta name="description" content="angularJS-filter自定义指令详解">
 <meta property="og:type" content="article">
-<meta property="og:title" content="angularJS模板中常用指令">
-<meta property="og:url" content="http://yoursite.com/2016/08/29/angularJS模板中常用指令/index.html">
+<meta property="og:title" content="angularJS自定义指令">
+<meta property="og:url" content="http://yoursite.com/2016/09/08/angularJS自定义指令/index.html">
 <meta property="og:site_name" content="Lynn's Blog">
-<meta property="og:description" content="angularJS模板中常用指令的详细讲述">
-<meta property="og:image" content="http://yoursite.com/../../../../../img/20222531-8ba974d6a9814f67a70a67bda8623de8.png">
-<meta property="og:updated_time" content="2016-08-31T02:27:41.536Z">
+<meta property="og:description" content="angularJS-filter自定义指令详解">
+<meta property="og:image" content="http://yoursite.com/img/28002258-8c5b73721271480481e7e139b977eba1.jpg">
+<meta property="og:image" content="http://yoursite.com/img/28010402-a510b99eb47f42e1ac07002fe7051207.jpg">
+<meta property="og:updated_time" content="2016-09-08T10:01:02.784Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="angularJS模板中常用指令">
-<meta name="twitter:description" content="angularJS模板中常用指令的详细讲述">
-<meta name="twitter:image" content="http://yoursite.com/../../../../../img/20222531-8ba974d6a9814f67a70a67bda8623de8.png">
+<meta name="twitter:title" content="angularJS自定义指令">
+<meta name="twitter:description" content="angularJS-filter自定义指令详解">
+<meta name="twitter:image" content="http://yoursite.com/img/28002258-8c5b73721271480481e7e139b977eba1.jpg">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -56,7 +57,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>angularJS模板中常用指令 | Lynn&#39;s Blog</title>
+<title>angularJS自定义指令 | Lynn&#39;s Blog</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -260,11 +261,11 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
-      <div class="body-wrap"><article id="post-angularJS模板中常用指令" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-angularJS自定义指令" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/08/29/angularJS模板中常用指令/" class="article-date">
-      <time datetime="2016-08-29T10:11:03.000Z" itemprop="datePublished">2016-08-29</time>
+      <a href="/2016/09/08/angularJS自定义指令/" class="article-date">
+      <time datetime="2016-09-08T06:56:06.000Z" itemprop="datePublished">2016-09-08</time>
 </a>
 
 
@@ -279,7 +280,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      angularJS模板中常用指令
+      angularJS自定义指令
     </h1>
   
 
@@ -304,68 +305,50 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>通过使用模板，我们可以把model和controller中的数据组装起来呈现给浏览器，还可以通过数据绑定，实时更新视图，让我们的页面变成动态的。ng的模板真是让我爱不释手。学习ng道路还很漫长，从模板开始入手是个不错方式，因为这部分内容相对简单好理解，而且是视图层的东西，大家都喜欢可以立马看得见的东西嘛。本篇我将搜罗模板中的常用指令一一测试，了解其使用方法，有点像背单词的感觉，会比较枯燥。不过对于初学，这样的枯燥是必须要经历的，开始~</p>
-<h3 id="模板中可使用的东西及表达式"><a href="#模板中可使用的东西及表达式" class="headerlink" title="模板中可使用的东西及表达式"></a>模板中可使用的东西及表达式</h3><p>模板中可以使用的东西包括以下四种：</p>
-<pre><code>1. 指令(directive)。ng提供的或者自定义的标签和属性，用来增强HTML表现力。
-2. 标记(markup)。即双大括号，可将数据单向绑定到HTML中。
-3. 过滤器(filter)。用来格式化输出数据。
-4. 表单控制。用来增强表单的验证功能。
-</code></pre><p>　　其中，指令无疑是使用量最大的，ng内置了很多指令用来控制模板，如ng-repeat，ng-class，也有很多指令来帮你完成业务逻辑，如ng-controller,ng-model。过滤器通常是伴随标记来使用的，将你model中的数据格式化为需要的格式。表单的控制功能主要涉及到数据验证以及表单控件的增强。</p>
-<p>　　在这里有必要说明一下表达式的概念，毕竟我们模板中大部分使用的都是变量。ng中的表达式与javascript表达式类似但是不可以划等号，它是ng自己定义的一套模式。表达式可以作为指令的值，如ng-modle=”people.name”、ng-click=”showMe()”，看起来是如此像字符串，故而也叫字符串表达式。也可以在标记中使用表达式，或者与过滤器一起使用。在框架内部，字符串不会简单的使用eval()来执行，而是有一个专门的$parse服务来处理。在ng表达式中不可以使用循环语句、判断语句，事实上在模板中使用复杂的表达式也是一个不推荐的做法，这样视图与逻辑就混杂在一起了。</p>
-<h3 id="样式相关的指令"><a href="#样式相关的指令" class="headerlink" title="样式相关的指令"></a>样式相关的指令</h3><p>既然模板就是普通的HTML，那我首要关心的就是样式的控制，元素的定位、字体、背景色等等如何可以灵活控制。下面来看看常用的样式控制指令。</p>
-<h4 id="1-ng-class"><a href="#1-ng-class" class="headerlink" title="1. ng-class"></a>1. ng-class</h4><p>ng-class用来给元素绑定类名，其表达式的返回值可以是以下三种：</p>
-<pre><code>1. 类名字符串，可以用空格分割多个类名，如’redtext boldtext’；
-2. 类名数组，数组中的每一项都会层叠起来生效；
-3. 一个名值对应的map，其键值为类名，值为boolean类型，当值为true时，该类会被加在元素上。
-</code></pre><p>下面来看一个使用map的例子：<br>ng-class测试<br>红色 加粗 删除线<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">map:&#123;redtext:&#123;&#123;red&#125;&#125;, boldtext:&#123;&#123;bold&#125;&#125;, striketext:&#123;&#123;strike&#125;&#125;&#125;</div></pre></td></tr></table></figure></p>
-<p>如果你想拼接一个类名出来，可以使用插值表达式，如：</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">”&#123;&#123;style&#125;&#125;text”</span>&gt;</span>字体样式测试<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
-<p>然后在controller中指定style的值：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$scope.style = ‘red’;</div></pre></td></tr></table></figure>
-<p>　　注意我用了class而不是ng-class，这是不可以对换的，官方的文档也未做说明，姑且认为这是ng的语法规则吧。</p>
-<p>　　与ng-class相近的，ng还提供了ng-class-odd、ng-class-even两个指令，用来配合ng-repeat分别在奇数列和偶数列使用对应的类。这个用来在表格中实现隔行换色再方便不过了。</p>
-<h4 id="2-ng-style"><a href="#2-ng-style" class="headerlink" title="2. ng-style"></a>2. ng-style</h4><p>　　ng-style用来绑定元素的css样式，其表达式的返回值为一个js对象，键为css样式名，值为该样式对应的合法取值。用法比较简单：</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">ng-style</span>=<span class="string">"&#123;color:'red'&#125;"</span>&gt;</span>ng-style测试<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">ng-style</span>=<span class="string">"style"</span>&gt;</span>ng-style测试<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">$scope.style = &#123;color:'red'&#125;;</div></pre></td></tr></table></figure>
-<h4 id="3-ng-show，ng-hide"><a href="#3-ng-show，ng-hide" class="headerlink" title="3. ng-show，ng-hide"></a>3. ng-show，ng-hide</h4><p>　　　对于比较常用的元素显隐控制，ng也做了封装，ng-show和ng-hide的值为boolean类型的表达式，当值为true时，对应的show或hide生效。框架会用display:block和display:none来控制元素的显隐。</p>
-<h3 id="表单控件功能相关的"><a href="#表单控件功能相关的" class="headerlink" title="表单控件功能相关的"></a>表单控件功能相关的</h3><p>　　对于常用的表单控件功能，ng也做了封装，方便灵活控制。</p>
-<pre><code>1. ng-checked控制radio和checkbox的选中状态
-2. ng-selected控制下拉框的选中状态
-3. ng-disabled控制失效状态
-4. ng-multiple控制多选
-5. ng-readonly控制只读状态
-</code></pre><p>　　以上指令的取值均为boolean类型，当值为true时相关状态生效，道理比较简单就不多做解释。注意： 上面的这些只是单向绑定，即只是从数据到模板，不能反作用于数据。要双向绑定，还是要使用 ng-model 。</p>
-<h3 id="事件绑定相关"><a href="#事件绑定相关" class="headerlink" title="事件绑定相关"></a>事件绑定相关</h3><p>　　事件绑定是javascrpt中比较重要的一部分内容，ng对此也做了详细的封装，正如我们之前使用过的ng-click一样，其他事件的指令如下：</p>
-<p>　　ng-change</p>
-<p>　　ng-dblclick</p>
-<p>　　ng-mousedown</p>
-<p>　　ng-mouseenter</p>
-<p>　　ng-mouseleave</p>
-<p>　　ng-mousemove</p>
-<p>　　ng-mouseover</p>
-<p>　　ng-mouseup</p>
-<p>　　ng-submit</p>
-<p>　　事件绑定指令的取值为函数，并且需要加上括号，例如：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&lt;select ng-change=”change($event)”&gt;<span class="xml"><span class="tag">&lt;/<span class="name">select</span>&gt;</span></span></div><div class="line">　　<span class="comment">//然后在controller中定义如下：</span></div><div class="line">$scope.change = <span class="function"><span class="keyword">function</span>(<span class="params">$event</span>)</span>&#123;</div><div class="line">         alert($event.target);</div><div class="line">         <span class="comment">//……………………</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>　　在模板中可以用变量$event将事件对象传递到controller中。</p>
-<p>　　对于ng的这种设计，一些人有所质疑，视图与事件绑定混在一起到底好不好？我们不是要讲究视图与逻辑分离吗？如此一来，把事件的绑定又变回了内联的，岂不是历史的倒退。我也一样对此表示不解，因为不写onclick已经很多年。。。但既然已经存在了，我们不妨往合理的方向上想一想，或许ng的设计者压根就不想让模板成为单纯的视图层，本来就是想增强HTML，让它有一点业务能力。这么想的话似乎也能想通，好吧，先欺骗一下自己吧~</p>
-<p>五、特殊的ng-src和ng-href<br>　　在说明这两个指令的特殊之前，需要先了解一下ng的启动及执行过程，如下图：<br><img src="../../../../../img/20222531-8ba974d6a9814f67a70a67bda8623de8.png" alt="img"></p>
-<pre><code>1. 浏览器加载静态HTML文件并解析为DOM；
-2. 浏览器加载angular.js文件；
-3. angular监听DOMContentLoaded 事件，监听到时开始启动；
-4. angular寻找ng-app指令，确定作用范围；
-5. 找到app中定义的Module使用$injector服务进行依赖注入；
-6. 根据$injector服务创建$compile服务用于编译；
-7. $compile服务编译DOM中的指令、过滤器等；
-8. 使用ng-init指令，将作用域中的变量进行替换；
-9. 最后生成了我们在最终视图。
-</code></pre><p>　　可以看到，ng框架是在DOMcontent加载完毕后才开始发挥作用。假如我们模板中有一张图片如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">　　&lt;img src=”&#123;&#123;imgUrl&#125;&#125;” /&gt;</div></pre></td></tr></table></figure>
-<p>　　那么在页面开始加载到ng编译完成之前，页面上会一直显示一张错误的图片，因为路径还未被替换，就像这样：</p>
-<p>　　为了避免这种情况，我们使用ng-src指令，这样在路径被正确得到之前就不会显示找不到图片。同理，a标签的href属性也需要换成ng-href，这样页面上就不会先出现一个地址错误的链接。</p>
-<p>　　顺着这个思路再多想一点，我们在模板中使用双大括号显示数据时，在ng编译完成之前页面上岂不是会显示出大括号及里面的表达式？确实是这样。为了避免这个，ng中有一个与双大括号等同的指令:ng-bind，同样用于单向绑定，在页面刚加载的时候就不会显示出对用户无用的数据了。尽管这样你可能不但没舒心反而更纠结了，双大括号那么好用易理解，还不能用了不成？好消息是我们依然可以使用。因为我编写的是单页面应用，页面只会在加载index.html的时候出这个问题，只需在index.html中的模板中换成ng-bind就行。其他的模板是我们动态加载的，就可以放心使用双大括号了。</p>
-<p>六、总结一下</p>
-<p>枯燥的内容终于写完！~在写这篇文章之前我就在纠结，写这样的内容是不是有点多余，因为这些东西在angular官网<a href="http://docs.angularjs.org/api/" target="_blank" rel="external">http://docs.angularjs.org/api/</a>一看就明白，而且在线示例也写的很棒。本着不急于求成的原则我还是决定先把这些东西都试一试吧，所以就有详有略的介绍了以上内容，必要的时候也可以当一个备忘。</p>
-<p>学英语有两种方法，一种是先做题，遇到不会的单词再查，另一种是先拿着单词本背。尽管专家好像更推荐前者，但如果你现在一窍不通，还是老老实实先背单词吧~</p>
+        <h3 id="一、指令的编译过程及命名方式"><a href="#一、指令的编译过程及命名方式" class="headerlink" title="一、指令的编译过程及命名方式"></a>一、指令的编译过程及命名方式</h3><p>1.浏览器得到HTML字符串内容，解析得到DOM结构。<br>2.ng引入，把DOM结构扔给 $compile函数处理：</p>
+<pre><code>1. 找出 DOM 结构中有变量占位符
+2. 匹配找出 DOM 中包含的所有指令引用
+3. 把指令关联到 DOM
+4. 关联到 DOM 的多个指令按权重排列
+5. 执行指令中的compile 函数（改变 DOM 结构，返回 link 函数）
+6. 得到的所有 link 函数组成一个列表作为 $compile 函数的返回
+</code></pre><p>3.执行link函数（连接模板的scope）。</p>
+<p>　　<code>这里注意区别一下$compile和compile，前者是ng内部的编译服务，后者是指令中的编译函数，两者发挥作用的范围不同。compile和link函数息息相关又有所区别，这个在后面会讲。了解执行流程对后面的理解会有帮助。</code></p>
+<p>　　在这里我小小的多嘴一下，有些人可能会问，angular不就是一个js框架吗，怎么还能跟编译扯上呢，又不是像C++那样的高级语言。其实此编译非彼编译，ng编译的工作是解析指令啦，绑定监听器啦，替换模板中的变量啦这些。因为工作方式很像高级语言编辑中的递归、堆栈过程，所以起名为编译，不要疑惑。</p>
+<p>　　指令的几种使用方式如下：</p>
+<p>　　作为标签：<code>&lt;my-dir&gt;&lt;/my-dir&gt;</code></p>
+<p>　　作为属性：<code>&lt;span my-dir=&quot;exp&quot;&gt;&lt;/span&gt;</code></p>
+<p>　　作为注释：<code>&lt;!-- directive: my-dir exp --&gt;</code></p>
+<p>　　作为类名：<code>&lt;span class=&quot;my-dir: exp;&quot;&gt;&lt;/span&gt;</code></p>
+<p>　　其实常用的就是作为标签和属性，下面两种用法目前还没见过，姑且留个印象。我们自定义的指令就是要支持这样的用法。</p>
+<p>　　关于自定义指令的命名，你可以随便怎么起名字都行，官方是推荐用[命名空间-指令名称]这样的方式，像ng-controller。不过你可千万不要用ng-前缀了，防止与系统自带的指令重名。另外一个需知道的地方，指令命名时用驼峰规则，使用时用-分割各单词。如：定义myDirective，使用时像这样：<code>&lt;my-directive&gt;</code>。</p>
+<h3 id="二、自定义指令的配置参数"><a href="#二、自定义指令的配置参数" class="headerlink" title="二、自定义指令的配置参数"></a>二、自定义指令的配置参数</h3><p>下面是定义一个标准指令的示例，可配置的参数包括以下部分：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">myModule.directive(<span class="string">'namespaceDirectiveName'</span>, <span class="function"><span class="keyword">function</span> <span class="title">factory</span>(<span class="params">injectables</span>) </span>&#123;</div><div class="line">        <span class="keyword">var</span> directiveDefinitionObject = &#123;</div><div class="line">            restrict: string,<span class="comment">//指令的使用方式，包括标签，属性，类，注释</span></div><div class="line">            priority: number,<span class="comment">//指令执行的优先级</span></div><div class="line">            template: string,<span class="comment">//指令使用的模板，用HTML字符串的形式表示</span></div><div class="line">            templateUrl: string,<span class="comment">//从指定的url地址加载模板</span></div><div class="line">            replace: bool,<span class="comment">//是否用模板替换当前元素，若为false，则append在当前元素上</span></div><div class="line">            transclude: bool,<span class="comment">//是否将当前元素的内容转移到模板中</span></div><div class="line">            scope: bool or object,<span class="comment">//指定指令的作用域</span></div><div class="line">            controller: <span class="function"><span class="keyword">function</span> <span class="title">controllerConstructor</span>(<span class="params">$scope, $element, $attrs, $transclude</span>)</span>&#123;...&#125;,<span class="comment">//定义与其他指令进行交互的接口函数</span></div><div class="line">            <span class="built_in">require</span>: string,<span class="comment">//指定需要依赖的其他指令</span></div><div class="line">            link: <span class="function"><span class="keyword">function</span> <span class="title">postLink</span>(<span class="params">scope, iElement, iAttrs</span>) </span>&#123;...&#125;,<span class="comment">//以编程的方式操作DOM，包括添加监听器等</span></div><div class="line">            compile: <span class="function"><span class="keyword">function</span> <span class="title">compile</span>(<span class="params">tElement, tAttrs, transclude</span>)</span>&#123;</div><div class="line">                <span class="keyword">return</span>: &#123;</div><div class="line">                    pre: <span class="function"><span class="keyword">function</span> <span class="title">preLink</span>(<span class="params">scope, iElement, iAttrs, controller</span>)</span>&#123;...&#125;,</div><div class="line">                    post: <span class="function"><span class="keyword">function</span> <span class="title">postLink</span>(<span class="params">scope, iElement, iAttrs, controller</span>)</span>&#123;...&#125;</div><div class="line">                &#125;</div><div class="line">            &#125;<span class="comment">//编程的方式修改DOM模板的副本，可以返回链接函数</span></div><div class="line">        &#125;;</div><div class="line">        <span class="keyword">return</span> directiveDefinitionObject;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>看上去好复杂的样子啊~定义一个指令需要这么多步骤嘛？当然不是，你可以根据自己的需要来选择使用哪些参数。事实上priority和compile用的比较少，template和templateUrl又是互斥的，两者选其一即可。所以不必紧张，接下来分别学习一下这些参数，我将先从一个简单的例子开始。为了易于理解和我以后翻看的时候还能看明白，我尽量使用有语义的命名，而不是像test1，test2这样。</p>
+<p>例子的代码如下：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> app = angular.module(<span class="string">'MyApp'</span>, [], <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;<span class="built_in">console</span>.log(<span class="string">'here'</span>)&#125;);</div><div class="line">app.directive(<span class="string">'sayHello'</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">                   <span class="keyword">return</span> &#123;</div><div class="line">                            restrict : <span class="string">'E'</span>,</div><div class="line">                            template : <span class="string">'&lt;div&gt;hello&lt;/div&gt;'</span></div><div class="line">                   &#125;;</div><div class="line">         &#125;)</div></pre></td></tr></table></figure>
+<p>然后在页面中，我们就可以使用这个名为sayHello的指令了，它的作用就是输出一个hello单词。像这样使用：</p>
+<p><code>&lt;say-hello&gt;&lt;/say-hello&gt;</code></p>
+<p>这样页面就会显示出hello了，看一下生成的代码：<br><img src="img/28002258-8c5b73721271480481e7e139b977eba1.jpg" alt="img"><br> 　　<br>         稍稍解释一下我们用到的两个参数，restirct用来指定指令的使用类型，其取值及含义如下：</p>
+<pre><code>| :取值 |:含义:| 使用示例:|
+| E    | 标签 | &lt;my-menu title=Products&gt;&lt;/my-menu&gt;   |
+| A    | 属性 | &lt;div my-menu=Products&gt;&lt;/div&gt;         |
+| C    | 类   | &lt;div class=&quot;my-menu&quot;:Products&gt;&lt;/div&gt; |
+| M    | 注释 | &lt;!--directive:my-menu Products--&gt;    |
+</code></pre><p>默认值是A。也可以使用这些值的组合，如EA，EC等等。我们这里指定为E，那么它就可以像标签一样使用了。如果指定为A，我们使用起来应该像这样：</p>
+<p><code>&lt;div say-hello&gt;&lt;/div&gt;</code></p>
+<p>从生成的代码中，你也看到了template的作用，它就是描述你的指令长什么样子，这部分内容将出现在页面中，即该指令所在的模板中，既然是模板中，template的内容中也可以使用ng-modle等其他指令，就像在模板中使用一样。</p>
+<p>在上面生成的代码中，我们看到了<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">replace的作用正如其名，将指令标签替换为了temple中定义的内容。不写的话默认为false。</div><div class="line"></div><div class="line">上面的template未免也太简单了，如果你的模板HTML较复杂，如自定义一个ui组件指令，难道要拼接老长的字符串？当然不需要，此时只需用templateUrl便可解决问题。你可以将指令的模板单独命名为一个html文件，然后在指令定义中使用templateUrl指定好文件的路径即可，如：</div><div class="line"></div><div class="line">``` javascript</div><div class="line">templateUrl : ‘helloTemplate.html’</div></pre></td></tr></table></figure></p>
+<p>系统会自动发一个http请求来获取到对应的模板内容。是不是很方便呢，你不用纠结于拼接字符串的烦恼了。如果你是一个追求完美的有考虑性能的工程师，可能会发问：那这样的话岂不是要牺牲一个http请求？</p>
+<p>这也不用担心，因为ng的模板还可以用另外一种方式定义，那就是使用script标签。使用起来如下：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;script type=<span class="string">"text/ng-template"</span> id=<span class="string">"helloTemplate.html"</span>&gt;</div><div class="line">         &lt;div&gt;hello&lt;/div&gt;</div><div class="line">&lt;<span class="regexp">/script&gt;</span></div></pre></td></tr></table></figure>
+<p>你可以把这段代码写在页面头部，这样就不必去请求它了。在实际项目中，你也可以将所有的模板内容集中在一个文件中，只加载一次，然后根据id来取用。</p>
+<p>接下来我们来看另一个比较有用的配置：transclude，定义是否将当前元素的内容转移到模板中。看解释有点抽象，不过亲手试试就很清楚了，看下面的代码：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">app.directive(<span class="string">'sayHello'</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">                   <span class="keyword">return</span> &#123;</div><div class="line">                            restrict : <span class="string">'E'</span>,</div><div class="line">                            template : <span class="string">'&lt;div&gt;hello，&lt;b ng-transclude&gt;&lt;/b&gt;&lt;/div&gt;'</span>,</div><div class="line">                            replace : <span class="literal">true</span>,</div><div class="line">                            transclude : <span class="literal">true</span></div><div class="line">                   &#125;;</div><div class="line">         &#125;)</div></pre></td></tr></table></figure>
+<p>指定了transclude为true，并且template修改了一下，加了一个b标签，并在上面使用了ng-transclude指令，用来告诉指令把内容转移到的位置。那我们要转移的内容是什么呢？请看使用指令时的变化：</p>
+<p><code>&lt;say-hello&gt;美女&lt;/say-hello&gt;</code></p>
+<p>内容是什么你也看到了哈~在运行的时候，美女将会被转移到<b>标签中，原来此配置的作用就是——乾坤大挪移！看效果：</b></p>
+<p><img src="img/28010402-a510b99eb47f42e1ac07002fe7051207.jpg" alt="img"><br> 　　<br>这个还是很有用的，因为你定义的指令不可能老是那么简单，只有一个空标签。当你需要对指令中的内容进行处理时，此参数便大有可用。</p>
 
       
     </div>
@@ -377,16 +360,10 @@
 
     <nav id="article-nav">
         
-            <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2016/09/08/angularJS自定义指令/">
-                    angularJS自定义指令
-                </a>
-            </div>
-        
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2016/08/29/angularJS过滤器详解/">
-                    angularJS-filter过滤器详解
+                <a href="/2016/08/29/angularJS模板中常用指令/">
+                    angularJS模板中常用指令
                 </a>
             </div>
         
@@ -398,7 +375,7 @@
     <div id="toc" class="toc-article">
         <strong class="toc-title">文章目录</strong>
         
-            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#模板中可使用的东西及表达式"><span class="toc-number">1.</span> <span class="toc-text">模板中可使用的东西及表达式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#样式相关的指令"><span class="toc-number">2.</span> <span class="toc-text">样式相关的指令</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-ng-class"><span class="toc-number">2.1.</span> <span class="toc-text">1. ng-class</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-ng-style"><span class="toc-number">2.2.</span> <span class="toc-text">2. ng-style</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-ng-show，ng-hide"><span class="toc-number">2.3.</span> <span class="toc-text">3. ng-show，ng-hide</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#表单控件功能相关的"><span class="toc-number">3.</span> <span class="toc-text">表单控件功能相关的</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#事件绑定相关"><span class="toc-number">4.</span> <span class="toc-text">事件绑定相关</span></a></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#一、指令的编译过程及命名方式"><span class="toc-number">1.</span> <span class="toc-text">一、指令的编译过程及命名方式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#二、自定义指令的配置参数"><span class="toc-number">2.</span> <span class="toc-text">二、自定义指令的配置参数</span></a></li></ol>
         
     </div>
     <style>
@@ -434,7 +411,7 @@
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"angularJS模板中常用指令　| Lynn's Blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"angularJS自定义指令　| Lynn's Blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -454,15 +431,13 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2016/09/08/angularJS自定义指令/" title="上一篇: angularJS自定义指令">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
 
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2016/08/29/angularJS过滤器详解/" title="下一篇: angularJS-filter过滤器详解">
+            <a href="/2016/08/29/angularJS模板中常用指令/" title="下一篇: angularJS模板中常用指令">
                 <i class="fa fa-angle-right"></i>
             </a>
         
