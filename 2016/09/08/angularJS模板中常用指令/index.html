@@ -21,12 +21,12 @@
 <meta property="og:url" content="http://yoursite.com/2016/09/08/angularJS模板中常用指令/index.html">
 <meta property="og:site_name" content="Lynn's Blog">
 <meta property="og:description" content="angularJS模板中常用指令的详细讲述">
-<meta property="og:image" content="http://yoursite.com/../../../../../img/20222531-8ba974d6a9814f67a70a67bda8623de8.png">
-<meta property="og:updated_time" content="2016-09-09T06:37:24.862Z">
+<meta property="og:image" content="http://yoursite.com/img/20222531-8ba974d6a9814f67a70a67bda8623de8.png">
+<meta property="og:updated_time" content="2016-09-09T06:39:43.384Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="angularJS模板中常用指令">
 <meta name="twitter:description" content="angularJS模板中常用指令的详细讲述">
-<meta name="twitter:image" content="http://yoursite.com/../../../../../img/20222531-8ba974d6a9814f67a70a67bda8623de8.png">
+<meta name="twitter:image" content="http://yoursite.com/img/20222531-8ba974d6a9814f67a70a67bda8623de8.png">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -348,7 +348,7 @@
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&lt;select ng-change=”change($event)”&gt;<span class="xml"><span class="tag">&lt;/<span class="name">select</span>&gt;</span></span></div><div class="line">　　<span class="comment">//然后在controller中定义如下：</span></div><div class="line">$scope.change = <span class="function"><span class="keyword">function</span>(<span class="params">$event</span>)</span>&#123;</div><div class="line">         alert($event.target);</div><div class="line">         <span class="comment">//……………………</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>　　在模板中可以用变量$event将事件对象传递到controller中。</p>
 <p>　　对于ng的这种设计，一些人有所质疑，视图与事件绑定混在一起到底好不好？我们不是要讲究视图与逻辑分离吗？如此一来，把事件的绑定又变回了内联的，岂不是历史的倒退。我也一样对此表示不解，因为不写onclick已经很多年。。。但既然已经存在了，我们不妨往合理的方向上想一想，或许ng的设计者压根就不想让模板成为单纯的视图层，本来就是想增强HTML，让它有一点业务能力。这么想的话似乎也能想通，好吧，先欺骗一下自己吧~</p>
-<p>五、特殊的ng-src和ng-href<br>　　在说明这两个指令的特殊之前，需要先了解一下ng的启动及执行过程，如下图：<br><img src="../../../../../img/20222531-8ba974d6a9814f67a70a67bda8623de8.png" alt="img"></p>
+<p>五、特殊的ng-src和ng-href<br>　　在说明这两个指令的特殊之前，需要先了解一下ng的启动及执行过程，如下图：<br><img src="/img/20222531-8ba974d6a9814f67a70a67bda8623de8.png" alt="img"></p>
 <pre><code>1. 浏览器加载静态HTML文件并解析为DOM；
 2. 浏览器加载angular.js文件；
 3. angular监听DOMContentLoaded 事件，监听到时开始启动；

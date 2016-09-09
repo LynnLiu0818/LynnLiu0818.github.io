@@ -21,17 +21,17 @@
 <meta property="og:url" content="http://yoursite.com/2016/08/26/angularJS指令详解/index.html">
 <meta property="og:site_name" content="Lynn's Blog">
 <meta property="og:description" content="angularJS-direction指令的详细讲述">
-<meta property="og:image" content="http://yoursite.com/../../../../../img/26014315.png">
-<meta property="og:image" content="http://yoursite.com/../../../../../img/26014315_Q0Gy.png">
-<meta property="og:image" content="http://yoursite.com/../../../../../img/26014316_XjAD.png">
-<meta property="og:image" content="http://yoursite.com/../../../../../img/26014316_ukGT.png">
-<meta property="og:image" content="http://yoursite.com/../../../../../img/26014316_vSCa.png">
-<meta property="og:image" content="http://yoursite.com/../../../../../img/26014316_jztx.png">
-<meta property="og:updated_time" content="2016-08-30T08:02:22.676Z">
+<meta property="og:image" content="http://yoursite.com/img/26014315.png">
+<meta property="og:image" content="http://yoursite.com/img/26014315_Q0Gy.png">
+<meta property="og:image" content="http://yoursite.com/img/26014316_XjAD.png">
+<meta property="og:image" content="http://yoursite.com/img/26014316_ukGT.png">
+<meta property="og:image" content="http://yoursite.com/img/26014316_vSCa.png">
+<meta property="og:image" content="http://yoursite.com/img/26014316_jztx.png">
+<meta property="og:updated_time" content="2016-09-09T06:39:43.337Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="angularJS-direction指令的API">
 <meta name="twitter:description" content="angularJS-direction指令的详细讲述">
-<meta name="twitter:image" content="http://yoursite.com/../../../../../img/26014315.png">
+<meta name="twitter:image" content="http://yoursite.com/img/26014315.png">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -318,7 +318,7 @@
 2. A(属性)：&lt;div directiveName=&apos;expression&apos;&gt;&lt;/div&gt;
 3. C(类)：   &lt;div class=&apos;directiveName&apos;&gt;&lt;/div&gt;
 4. M(注释)：&lt;--directive:directiveName expression--&gt;
-</code></pre><p>你知道用AngularJs怎么定义指令吗？<br><img src="../../../../../img/26014315.png" alt=""></p>
+</code></pre><p>你知道用AngularJs怎么定义指令吗？<br><img src="/img/26014315.png" alt=""></p>
 <p>例如restrict：‘EA’ 则表示指令在DOM里面可用元素形式和属性形式被声明；</p>
 <p>一般来说，当你创建一个有自己模板的组件的时候，需要使用元素名，如果仅仅是为为已有元素添加功能的话，就使用属性名</p>
 <p><code>注意：如果想支持IE8，则最好使用属性和类形式来定义。 另外Angular从1.3.x开始, 已经放弃支持IE8了.</code></p>
@@ -387,7 +387,7 @@
 <p>tip：当你想要创建一个可重用的组件时隔离作用域是一个很好的选择，通过隔离作用域我们确保指令是‘独立’的,并可以轻松地插入到任何HTML app中，并且这种做法防止了父作用域被污染；</p>
 <h4 id="2-隔离作用域可以通过绑定策略来访问父作用域的属性。"><a href="#2-隔离作用域可以通过绑定策略来访问父作用域的属性。" class="headerlink" title="2) 隔离作用域可以通过绑定策略来访问父作用域的属性。"></a>2) 隔离作用域可以通过绑定策略来访问父作用域的属性。</h4><p>下面看一个例子</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;!doctype html&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">ng-app</span>=<span class="string">"myApp"</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"utf-8"</span>/&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"http://cdn.staticfile.org/angular.js/1.2.10/angular.min.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">ng-controller</span>=<span class="string">'MainController'</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">ng-model</span>=<span class="string">"color"</span> <span class="attr">placeholder</span>=<span class="string">"Enter a color"</span>/&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">hello-world</span>&gt;</span><span class="tag">&lt;/<span class="name">hello-world</span>&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="javascript"></span></div><div class="line">    <span class="keyword">var</span> app = angular.module(<span class="string">'myApp'</span>,[]);</div><div class="line">    app.controller(<span class="string">'MainController'</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;);</div><div class="line">    app.directive(<span class="string">'helloWorld'</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">     <span class="keyword">return</span> &#123;</div><div class="line">        scope: <span class="literal">false</span>,</div><div class="line">        restrict: <span class="string">'AE'</span>,</div><div class="line">        replace: <span class="literal">true</span>,</div><div class="line">        template: <span class="string">'&lt;p style="background-color:&#123;&#123;color&#125;&#125;"&gt;Hello World&lt;/p&gt;'</span></div><div class="line">     &#125;</div><div class="line">    &#125;);</div><div class="line">  <span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></div></pre></td></tr></table></figure>
-<p>运行代码，并在input中输入颜色值，结果为<br><img src="../../../../../img/26014315_Q0Gy.png" alt=""></p>
+<p>运行代码，并在input中输入颜色值，结果为<br><img src="/img/26014315_Q0Gy.png" alt=""></p>
 <p>但是，但我们将scope设置为{}时候，再次运行上面的代码可以发现页面并不能成功完整显示！</p>
 <p>原因在于，这里我们将scope设置为{}，产生了隔离作用域。</p>
 <p>所以在template模板中变量color变成了依赖于自己的作用域，而不是依赖于父作用域。</p>
@@ -419,7 +419,7 @@
 <p>另外当开启transclude，会创建一个新的transclude空间，并且继承了父作用域（即使Scope设置为隔离作用域），</p>
 <p>上面代码中的是依赖于父作用域的，仍然能被渲染出来，就说明了这点。</p>
 <p>我们再看看生成的html为下图所示，可以发现文本“你看不见我”消失了，这是因为被transclude内容替换掉了。</p>
-<p>这里的transclude内容就是<br><img src="../../../../../img/26014316_XjAD.png" alt="img"></p>
+<p>这里的transclude内容就是<br><img src="/img/26014316_XjAD.png" alt="img"></p>
 <p>接下来再来看看transclude的另一个取值transclude：“element”</p>
 <p>那transclude：“element”与transclude：true有什么区别呢？</p>
 <p>区别在于嵌入的内容，以上面的例子来说，</p>
@@ -429,12 +429,12 @@
 <p>没错，此时嵌入的内容为整个元素。</p>
 <p>将上面代码transclude：true换成transclude：true后，再运行，你会发现结果并不是和你想的一样</p>
 <p>再次查看生成的html代码</p>
-<p><img src="../../../../../img/26014316_ukGT.png" alt="img"></p>
+<p><img src="/img/26014316_ukGT.png" alt="img"></p>
 <p>你会发现指令绑定的元素被转换为了一个HTML注释</p>
 <p>关于这方面的疑问可以查看 <a href="https://github.com/angular/angular.js/issues/3368" target="_blank" rel="external">transclude: ‘element’ is useless without replace:true</a> 获取更多</p>
 <p>解决方案是加上replace: true，就正常了</p>
 <p>这时再查看HTML代码</p>
-<p><img src="../../../../../img/26014316_vSCa.png" alt="img"></p>
+<p><img src="/img/26014316_vSCa.png" alt="img"></p>
 <p> 注意:在一个指令的模板template上只能申明一个ng-transclude。</p>
 <p>OK，那么现在问题来了，如果我们想把嵌入部分多次放入我们的模板中要怎么办？</p>
 <p>则可以使用$transclude(后面再controller选项中会讲)</p>
@@ -454,7 +454,7 @@
 <p>指令的控制器和link函数（后面会讲）可以进行互换。区别在于，控制器主要是用来提供可在指令间复用的行为但link链接函数只能在当前内部指令中定义行为，且无法再指令间复用。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">html代码:   &lt;my-site site=&quot;http://www.cnblogs.com/cunjieliu&quot;&gt;雷锋叔叔的博客&lt;/my-site&gt;</div><div class="line"></div><div class="line">js代码：</div><div class="line">  &lt;script&gt;</div><div class="line">    angular.module(&apos;myApp&apos;,[]).directive(&apos;mySite&apos;, function () &#123;</div><div class="line">     return &#123;</div><div class="line">         restrict: &apos;EA&apos;,</div><div class="line">         transclude: true, //注意此处必须设置为true</div><div class="line">         controller:</div><div class="line">         function ($scope, $element,$attrs,$transclude,$log) &#123;  //在这里你可以注入你想注入的服务</div><div class="line">             $transclude(function (clone) &#123;</div><div class="line">                 var a = angular.element(&apos;&lt;a&gt;&apos;);</div><div class="line">                 a.attr(&apos;href&apos;, $attrs.site);</div><div class="line">                 a.text(clone.text());</div><div class="line">                 $element.append(a);</div><div class="line">             &#125;);</div><div class="line">             $log.info(&quot;hello everyone&quot;);</div><div class="line">         &#125;</div><div class="line">     &#125;;</div><div class="line"> &#125;);</div><div class="line">  &lt;/script&gt;</div></pre></td></tr></table></figure>
 <p>运行上面的代码就是</p>
-<p><img src="../../../../../img/26014316_jztx.png" alt="img"></p>
+<p><img src="/img/26014316_jztx.png" alt="img"></p>
 <p>并且在控制台下输出hello everyone</p>
 <p>让我们看看$transclude();在这里，它可以接收两个参数，第一个是$scope，作用域，第二个是带有参数clone的回调函数。</p>
 <p>而这个clone实际上就是嵌入的内容（经过jquery包装），可以在它上做很多DOM操作。</p>
