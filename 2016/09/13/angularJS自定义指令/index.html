@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+
+    <!--[if lt IE 9]>
+        <style>body {display: none; background: none !important} </style>
+        <meta http-equiv="Refresh" Content="0; url=//outdatedbrowser.com/" />
+    <![endif]-->
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="format-detection" content="telephone=no" />
+<meta name="author" content="Lynn" />
+
+
+
+<meta name="description" content="angularJS-filter自定义指令详解">
+<meta property="og:type" content="article">
+<meta property="og:title" content="angularJS自定义指令">
+<meta property="og:url" content="http://yoursite.com/2016/09/13/angularJS自定义指令/index.html">
+<meta property="og:site_name" content="Lynn's Blog">
+<meta property="og:description" content="angularJS-filter自定义指令详解">
+<meta property="og:image" content="http://yoursite.com/img/28002258-8c5b73721271480481e7e139b977eba1.jpg">
+<meta property="og:image" content="http://yoursite.com/img/28010402-a510b99eb47f42e1ac07002fe7051207.jpg">
+<meta property="og:image" content="http://yoursite.com/img/342414324.png">
+<meta property="og:updated_time" content="2016-09-13T09:07:54.889Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="angularJS自定义指令">
+<meta name="twitter:description" content="angularJS-filter自定义指令详解">
+<meta name="twitter:image" content="http://yoursite.com/img/28002258-8c5b73721271480481e7e139b977eba1.jpg">
+
+<link rel="apple-touch-icon" href= "/apple-touch-icon.png">
+
+
+    <link rel="alternate" href="/atom.xml" title="Lynn&#39;s Blog" type="application/atom+xml">
+
+
+
+    <link rel="shortcut icon" href="/img/hahaha.jpg">
+
+
+
+
+
+    <link href="//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.css" rel="stylesheet">
+
+
+
+    <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+    <link href="//cdn.bootcss.com/pace/1.0.2/themes/blue/pace-theme-minimal.css" rel="stylesheet">
+
+
+<link rel="stylesheet" href="/css/style.css">
+
+
+
+<link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+
+
+<title>angularJS自定义指令 | Lynn&#39;s Blog</title>
+
+<script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+
+<script>
+    var yiliaConfig = {
+        fancybox: true,
+        animate: false,
+        isHome: false,
+        isPost: true,
+        isArchive: false,
+        isTag: false,
+        isCategory: false,
+        fancybox_js: "//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.js",
+        scrollreveal: "//cdn.bootcss.com/scrollReveal.js/3.1.4/scrollreveal.min.js",
+        search: undefined
+    }
+</script>
+
+
+    <script> yiliaConfig.jquery_ui = [false]; </script>
+
+
+
+    <script> yiliaConfig.rootUrl = "\/";</script>
+
+
+
+
+
+
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            <img src="/img/hahaha.jpg" class="animated zoomIn">
+        </a>
+        <hgroup>
+          <h1 class="header-author"><a href="/">Lynn</a></h1>
+        </hgroup>
+
+        
+
+        
+
+
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        <div class="icon-wrap icon-link hide" data-idx="2">
+                            <div class="loopback_l"></div>
+                            <div class="loopback_r"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜单</li>
+                        <li>标签</li>
+                        
+                        <li>友情链接</li>
+                        
+                        
+                        <li>关于我</li>
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="/">主页</a></li>
+                        
+                            <li><a href="/archives">所有文章</a></li>
+                        
+                            <li><a href="/tags">标签云</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa Email" href="mailto:824230528@qq.com" title="Email"></a>
+                            
+                                <a class="fa GitHub" href="https://github.com/" title="GitHub"></a>
+                            
+                                <a class="fa bilibili" href="/" title="bilibili"></a>
+                            
+                                <a class="fa QQ" href="/" title="QQ"></a>
+                            
+                                <a class="fa 微信" href="/" title="微信"></a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/angularJS/">angularJS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css/">css</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/js/">js</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/markdown/">markdown</a></li></ul>
+                    </div>
+                </section>
+                
+                
+                
+                <section class="switch-part switch-part3">
+                    <div id="js-friends">
+                    
+                      <a class="main-nav-link switch-friends-link" href="https://hexo.io">Hexo</a>
+                    
+                      <a class="main-nav-link switch-friends-link" href="https://pages.github.com/">GitHub</a>
+                    
+                      <a class="main-nav-link switch-friends-link" href="http://moxfive.xyz/">MOxFIVE</a>
+                    
+                    </div>
+                </section>
+                
+
+                
+                
+                <section class="switch-part switch-part4">
+                
+                    <div id="js-aboutme">专注于前端</div>
+                </section>
+                
+            </div>
+        </div>
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">Lynn</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                <img src="/img/hahaha.jpg" class="animated zoomIn">
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="回到主页">Lynn</a></h1>
+            </hgroup>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/">主页</a></li>
+                
+                    <li><a href="/archives">所有文章</a></li>
+                
+                    <li><a href="/tags">标签云</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa Email" target="_blank" href="mailto:824230528@qq.com" title="Email"></a>
+                            
+                                <a class="fa GitHub" target="_blank" href="https://github.com/" title="GitHub"></a>
+                            
+                                <a class="fa bilibili" target="_blank" href="/" title="bilibili"></a>
+                            
+                                <a class="fa QQ" target="_blank" href="/" title="QQ"></a>
+                            
+                                <a class="fa 微信" target="_blank" href="/" title="微信"></a>
+                            
+                        </ul>
+            </nav>
+        </header>                
+    </div>
+    <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
+</nav>
+      <div class="body-wrap"><article id="post-angularJS自定义指令" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/09/13/angularJS自定义指令/" class="article-date">
+      <time datetime="2016-09-13T04:07:06.000Z" itemprop="datePublished">2016-09-13</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      angularJS自定义指令
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/angularJS/">angularJS</a>
+    </div>
+
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/angularJS/">angularJS</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h3 id="一、指令的编译过程及命名方式"><a href="#一、指令的编译过程及命名方式" class="headerlink" title="一、指令的编译过程及命名方式"></a>一、指令的编译过程及命名方式</h3><p>1.浏览器得到HTML字符串内容，解析得到DOM结构。<br>2.ng引入，把DOM结构扔给 $compile函数处理：</p>
+<pre><code>1. 找出 DOM 结构中有变量占位符
+2. 匹配找出 DOM 中包含的所有指令引用
+3. 把指令关联到 DOM
+4. 关联到 DOM 的多个指令按权重排列
+5. 执行指令中的compile 函数（改变 DOM 结构，返回 link 函数）
+6. 得到的所有 link 函数组成一个列表作为 $compile 函数的返回
+</code></pre><p>3.执行link函数（连接模板的scope）。</p>
+<p>　　<code>这里注意区别一下$compile和compile，前者是ng内部的编译服务，后者是指令中的编译函数，两者发挥作用的范围不同。compile和link函数息息相关又有所区别，这个在后面会讲。了解执行流程对后面的理解会有帮助。</code></p>
+<p>　　在这里我小小的多嘴一下，有些人可能会问，angular不就是一个js框架吗，怎么还能跟编译扯上呢，又不是像C++那样的高级语言。其实此编译非彼编译，ng编译的工作是解析指令啦，绑定监听器啦，替换模板中的变量啦这些。因为工作方式很像高级语言编辑中的递归、堆栈过程，所以起名为编译，不要疑惑。</p>
+<p>　　指令的几种使用方式如下：</p>
+<p>　　作为标签：<code>&lt;my-dir&gt;&lt;/my-dir&gt;</code></p>
+<p>　　作为属性：<code>&lt;span my-dir=&quot;exp&quot;&gt;&lt;/span&gt;</code></p>
+<p>　　作为注释：<code>&lt;!-- directive: my-dir exp --&gt;</code></p>
+<p>　　作为类名：<code>&lt;span class=&quot;my-dir: exp;&quot;&gt;&lt;/span&gt;</code></p>
+<p>　　其实常用的就是作为标签和属性，下面两种用法目前还没见过，姑且留个印象。我们自定义的指令就是要支持这样的用法。</p>
+<p>　　关于自定义指令的命名，你可以随便怎么起名字都行，官方是推荐用[命名空间-指令名称]这样的方式，像ng-controller。不过你可千万不要用ng-前缀了，防止与系统自带的指令重名。另外一个需知道的地方，指令命名时用驼峰规则，使用时用-分割各单词。如：定义myDirective，使用时像这样：<code>&lt;my-directive&gt;</code>。</p>
+<h3 id="二、自定义指令的配置参数"><a href="#二、自定义指令的配置参数" class="headerlink" title="二、自定义指令的配置参数"></a>二、自定义指令的配置参数</h3><p>下面是定义一个标准指令的示例，可配置的参数包括以下部分：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">myModule.directive(<span class="string">'namespaceDirectiveName'</span>, <span class="function"><span class="keyword">function</span> <span class="title">factory</span>(<span class="params">injectables</span>) </span>&#123;</div><div class="line">        <span class="keyword">var</span> directiveDefinitionObject = &#123;</div><div class="line">            restrict: string,<span class="comment">//指令的使用方式，包括标签，属性，类，注释</span></div><div class="line">            priority: number,<span class="comment">//指令执行的优先级</span></div><div class="line">            template: string,<span class="comment">//指令使用的模板，用HTML字符串的形式表示</span></div><div class="line">            templateUrl: string,<span class="comment">//从指定的url地址加载模板</span></div><div class="line">            replace: bool,<span class="comment">//是否用模板替换当前元素，若为false，则append在当前元素上</span></div><div class="line">            transclude: bool,<span class="comment">//是否将当前元素的内容转移到模板中</span></div><div class="line">            scope: bool or object,<span class="comment">//指定指令的作用域</span></div><div class="line">            controller: <span class="function"><span class="keyword">function</span> <span class="title">controllerConstructor</span>(<span class="params">$scope, $element, $attrs, $transclude</span>)</span>&#123;...&#125;,<span class="comment">//定义与其他指令进行交互的接口函数</span></div><div class="line">            <span class="built_in">require</span>: string,<span class="comment">//指定需要依赖的其他指令</span></div><div class="line">            link: <span class="function"><span class="keyword">function</span> <span class="title">postLink</span>(<span class="params">scope, iElement, iAttrs</span>) </span>&#123;...&#125;,<span class="comment">//以编程的方式操作DOM，包括添加监听器等</span></div><div class="line">            compile: <span class="function"><span class="keyword">function</span> <span class="title">compile</span>(<span class="params">tElement, tAttrs, transclude</span>)</span>&#123;</div><div class="line">                <span class="keyword">return</span>: &#123;</div><div class="line">                    pre: <span class="function"><span class="keyword">function</span> <span class="title">preLink</span>(<span class="params">scope, iElement, iAttrs, controller</span>)</span>&#123;...&#125;,</div><div class="line">                    post: <span class="function"><span class="keyword">function</span> <span class="title">postLink</span>(<span class="params">scope, iElement, iAttrs, controller</span>)</span>&#123;...&#125;</div><div class="line">                &#125;</div><div class="line">            &#125;<span class="comment">//编程的方式修改DOM模板的副本，可以返回链接函数</span></div><div class="line">        &#125;;</div><div class="line">        <span class="keyword">return</span> directiveDefinitionObject;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>看上去好复杂的样子啊~定义一个指令需要这么多步骤嘛？当然不是，你可以根据自己的需要来选择使用哪些参数。事实上priority和compile用的比较少，template和templateUrl又是互斥的，两者选其一即可。所以不必紧张，接下来分别学习一下这些参数，我将先从一个简单的例子开始。为了易于理解和我以后翻看的时候还能看明白，我尽量使用有语义的命名，而不是像test1，test2这样。</p>
+<p>例子的代码如下：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> app = angular.module(<span class="string">'MyApp'</span>, [], <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;<span class="built_in">console</span>.log(<span class="string">'here'</span>)&#125;);</div><div class="line">app.directive(<span class="string">'sayHello'</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">                   <span class="keyword">return</span> &#123;</div><div class="line">                            restrict : <span class="string">'E'</span>,</div><div class="line">                            template : <span class="string">'&lt;div&gt;hello&lt;/div&gt;'</span></div><div class="line">                   &#125;;</div><div class="line">         &#125;)</div></pre></td></tr></table></figure>
+<p>然后在页面中，我们就可以使用这个名为sayHello的指令了，它的作用就是输出一个hello单词。像这样使用：</p>
+<p><code>&lt;say-hello&gt;&lt;/say-hello&gt;</code></p>
+<p>这样页面就会显示出hello了，看一下生成的代码：<br><img src="/img/28002258-8c5b73721271480481e7e139b977eba1.jpg" alt="img"><br> 　　<br>         稍稍解释一下我们用到的两个参数，restirct用来指定指令的使用类型，其取值及含义如下：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">取值</th>
+<th style="text-align:center">含义</th>
+<th style="text-align:center">使用示例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">E</td>
+<td style="text-align:center">标签</td>
+<td style="text-align:center"><code>&lt;my-menu title=Products&gt;&lt;/my-menu&gt;</code></td>
+</tr>
+<tr>
+<td style="text-align:center">A</td>
+<td style="text-align:center">属性</td>
+<td style="text-align:center"><code>&lt;div my-menu=Products&gt;&lt;/div&gt;</code></td>
+</tr>
+<tr>
+<td style="text-align:center">C</td>
+<td style="text-align:center">类</td>
+<td style="text-align:center"><code>&lt;div class=&quot;my-menu&quot;:Products&gt;&lt;/div&gt;</code></td>
+</tr>
+<tr>
+<td style="text-align:center">M</td>
+<td style="text-align:center">注释</td>
+<td style="text-align:center"><code>&lt;!--directive:my-menu Products--&gt;</code></td>
+</tr>
+</tbody>
+</table>
+<p>默认值是A。也可以使用这些值的组合，如EA，EC等等。我们这里指定为E，那么它就可以像标签一样使用了。如果指定为A，我们使用起来应该像这样：</p>
+<p><code>&lt;div say-hello&gt;&lt;/div&gt;</code></p>
+<p>从生成的代码中，你也看到了template的作用，它就是描述你的指令长什么样子，这部分内容将出现在页面中，即该指令所在的模板中，既然是模板中，template的内容中也可以使用ng-modle等其他指令，就像在模板中使用一样。</p>
+<p>在上面生成的代码中，我们看到了<code>&lt;div&gt;hello&lt;/div&gt;</code>外面还包着一层<code>&lt;say-hello&gt;</code>标签，如果我们不想要这一层多余的东西了，replace就派上用场了，在配置中将replace赋值为true，将得到如下结构：</p>
+<p>replace的作用正如其名，将指令标签替换为了temple中定义的内容。不写的话默认为false。</p>
+<p>上面的template未免也太简单了，如果你的模板HTML较复杂，如自定义一个ui组件指令，难道要拼接老长的字符串？当然不需要，此时只需用templateUrl便可解决问题。你可以将指令的模板单独命名为一个html文件，然后在指令定义中使用templateUrl指定好文件的路径即可，如：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">templateUrl : ‘helloTemplate.html’</div></pre></td></tr></table></figure>
+<p>系统会自动发一个http请求来获取到对应的模板内容。是不是很方便呢，你不用纠结于拼接字符串的烦恼了。如果你是一个追求完美的有考虑性能的工程师，可能会发问：那这样的话岂不是要牺牲一个http请求？</p>
+<p>这也不用担心，因为ng的模板还可以用另外一种方式定义，那就是使用script标签。使用起来如下：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;script type=<span class="string">"text/ng-template"</span> id=<span class="string">"helloTemplate.html"</span>&gt;</div><div class="line">         &lt;div&gt;hello&lt;/div&gt;</div><div class="line">&lt;<span class="regexp">/script&gt;</span></div></pre></td></tr></table></figure>
+<p>你可以把这段代码写在页面头部，这样就不必去请求它了。在实际项目中，你也可以将所有的模板内容集中在一个文件中，只加载一次，然后根据id来取用。</p>
+<p>接下来我们来看另一个比较有用的配置：transclude，定义是否将当前元素的内容转移到模板中。看解释有点抽象，不过亲手试试就很清楚了，看下面的代码：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">app.directive(<span class="string">'sayHello'</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">                   <span class="keyword">return</span> &#123;</div><div class="line">                            restrict : <span class="string">'E'</span>,</div><div class="line">                            template : <span class="string">'&lt;div&gt;hello，&lt;b ng-transclude&gt;&lt;/b&gt;&lt;/div&gt;'</span>,</div><div class="line">                            replace : <span class="literal">true</span>,</div><div class="line">                            transclude : <span class="literal">true</span></div><div class="line">                   &#125;;</div><div class="line">         &#125;)</div></pre></td></tr></table></figure>
+<p>指定了transclude为true，并且template修改了一下，加了一个b标签，并在上面使用了ng-transclude指令，用来告诉指令把内容转移到的位置。那我们要转移的内容是什么呢？请看使用指令时的变化：</p>
+<p><code>&lt;say-hello&gt;美女&lt;/say-hello&gt;</code></p>
+<p>内容是什么你也看到了哈~在运行的时候，美女将会被转移到<b>标签中，原来此配置的作用就是——乾坤大挪移！看效果：</b></p>
+<p><img src="/img/28010402-a510b99eb47f42e1ac07002fe7051207.jpg" alt="img"><br> 　　<br>这个还是很有用的，因为你定义的指令不可能老是那么简单，只有一个空标签。当你需要对指令中的内容进行处理时，此参数便大有可用。</p>
+<h3 id="三、理解compile和link"><a href="#三、理解compile和link" class="headerlink" title="三、理解compile和link"></a>三、理解compile和link</h3><p>不知大家有没有这样的感觉，自己定义指令的时候跟写jQuery插件有几分相似之处，都是先预先定义好页面结构及监听函数，然后在某个元素上调用一下，该元素便拥有了特殊的功能。区别在于，jQuery的侧重点是DOM操作，而ng的指令中除了可以进行DOM操作外，更注重的是数据和模板的绑定。jQuery插件在调用的时候才开始初始化，而ng指令在页面加载进来的时候就被编译服务($compile)初始化好了。</p>
+<p>在指令定义对象中，有compile和link两个参数，它们是做什么的呢？从字面意义上看，编译、链接，貌似太抽象了点。其实可大有内涵，为了在自定义指令的时候能正确使用它们，现在有必要了解一下ng是如何编译指令的。上一篇我有列了一下指令的执行流程，但仅仅列1234有点太对不起观众了，故在此详细分析一下。此知识点相当重要。</p>
+<h4 id="指令的解析流程详解"><a href="#指令的解析流程详解" class="headerlink" title="指令的解析流程详解"></a>指令的解析流程详解</h4><p>我们知道ng框架会在页面载入完毕的时候，根据ng-app划定的作用域来调用$compile服务进行编译，这个$compile就像一个大总管一样，清点作用域内的DOM元素，看看哪些元素上使用了指令(如<code>&lt;div ng-modle=”m”&gt;&lt;/div&gt;</code>)，或者哪些元素本身就是个指令(如<code>&lt;mydierc&gt;&lt;/mydirec&gt;</code>)，或者使用了插值指令( 双大括号也是一种指令，叫interpolation directive)，$compile大总管会把清点好的财产做一个清单，然后根据这些指令的优先级(priority)排列一下，真是个细心的大总管哈~大总管还会根据指令中的配置参数(template，place，transclude等)转换DOM，让指令“初具人形”。</p>
+<p>然后就开始按顺序执行各指令的compile函数，注意此处的compile可不是大总管$compile，人家带着$是土豪，此处执行的compile函数是我们指令中配置的，compile函数中可以访问到DOM节点并进行操作，其主要职责就是进行DOM转换，每个compile函数执行完后都会返回一个link函数，这些link函数会被大总管汇合一下组合成一个合体后的link函数，为了好理解，我们可以把它想象成葫芦小金刚，就像是进行了这样的处理</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">//合体后的link函数</div><div class="line">function AB()&#123;</div><div class="line">  A(); //子link函数</div><div class="line">  B(); //子link函数</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>接下来进入link阶段，合体后的link函数被执行。所谓的链接，就是把view和scope链接起来。链接成啥样呢？就是我们熟悉的数据绑定，通过在DOM上注册监听器来动态修改scope中的数据，或者是使用$watchs监听 scope中的变量来修改DOM，从而建立双向绑定。由此也可以断定，葫芦小金刚可以访问到scope和DOM节点。</p>
+<p>不要忘了我们在定义指令中还配置着一个link参数呢，这么多link千万别搞混了。那这个link函数是干嘛的呢，我们不是有葫芦小金刚了嘛？那我告诉你，其实它是一个小三。此话怎讲？compile函数执行后返回link函数，但若没有配置compile函数呢？葫芦小金刚自然就不存在了。正房不在了，当然就轮到小三出马了，大总管$compile就把这里的link函数拿来执行。这就意味着，配置的link函数也可以访问到scope以及DOM节点。值得注意的是，compile函数通常是不会被配置的，因为我们定义一个指令的时候，大部分情况不会通过编程的方式进行DOM操作，而更多的是进行监听器的注册、数据的绑定。所以，小三名正言顺的被大总管宠爱~</p>
+<p>听完了大总管、葫芦小金刚和小三的故事，你是不是对指令的解析过程比较清晰了呢？不过细细推敲，你可能还是会觉得情节生硬，有些细节似乎还是没有透彻的明白，所以还需要再理解下面的知识点：</p>
+<h4 id="compile和link的区别"><a href="#compile和link的区别" class="headerlink" title="compile和link的区别"></a>compile和link的区别</h4><p>  首先是性能。举个例子：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">ul</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">li</span> <span class="attr">ng-repeat</span>=<span class="string">"a in array"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">ng-modle</span>=<span class="string">”a.m”</span> /&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>我们的观察目标是ng-repeat指令。假设一个前提是不存在link。大总管$compile在编译这段代码时，会查找到ng-repeat，然后执行它的compile函数，compile函数根据array的长度复制出n个li标签。而复制出的li节点中还有input节点并且使用了ng-modle指令，所以compile还要扫描它并匹配指令，然后绑定监听器。每次循环都做如此多的工作。而更加糟糕的一点是，我们会在程序中向array中添加元素，此时页面上会实时更新DOM，每次有新元素进来，compile函数都把上面的步骤再走一遍，岂不是要累死了，这样性能必然不行。</p>
+<p>现在扔掉那个假设，在编译的时候compile就只管生成DOM的事，碰到需要绑定监听器的地方先存着，有几个存几个，最后把它们汇总成一个link函数，然后一并执行。这样就轻松多了，compile只需要执行一次，性能自然提升。</p>
+<p>另外一个区别是能力。尽管compile和link所做的事情差不多，但它们的能力范围还是不一样的。</p>
+<p>我们需要看一下compile函数和link函数的定义：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">function compile(tElement, tAttrs, transclude) &#123; ... &#125;</div><div class="line">function link(scope, iElement, iAttrs, controller) &#123; ... &#125;</div></pre></td></tr></table></figure>
+<p>这些参数都是通过依赖注入而得到的，可以按需声明使用。从名字也容易看出，两个函数各自的职责是什么，compile可以拿到transclude，允许你自己编程管理乾坤大挪移的行为。而link中可以拿到scope和controller，可以与scope进行数据绑定，与其他指令进行通信。两者虽然都可以拿到element，但是还是有区别的，看到各自的前缀了吧？compile拿到的是编译前的，是从template里拿过来的，而link拿到的是编译后的，已经与作用域建立了关联，这也正是link中可以进行数据绑定的原因。</p>
+<p>只要简单记住一个原则就行了：如果指令只进行DOM的修改，不进行数据绑定，那么配置在compile函数中，如果指令要进行数据绑定，那么配置在link函数中。</p>
+<h3 id="四、使用scope为指令划分作用域"><a href="#四、使用scope为指令划分作用域" class="headerlink" title="四、使用scope为指令划分作用域"></a>四、使用scope为指令划分作用域</h3><p>　　顾名思义，scope肯定是跟作用域有关的一个参数，它的作用是描述指令与父作用域的关系，这个父作用域是指什么呢？想象一下我们使用指令的场景，页面结构应该是这个样子：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">ng-controller</span>=<span class="string">"testC"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">say-hello</span> <span class="attr">speak</span>=<span class="string">"content"</span>&gt;</span>美女<span class="tag">&lt;/<span class="name">say-hello</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>外层肯定会有一个controller，而在controller的定义中大体是这个样子：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> app = angular.module(<span class="string">'MyApp'</span>, [], <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;<span class="built_in">console</span>.log(<span class="string">'here'</span>)&#125;);</div><div class="line">app.controller(<span class="string">'testC'</span>,<span class="function"><span class="keyword">function</span>(<span class="params">$scope</span>)</span>&#123;</div><div class="line">    $scope.content = <span class="string">'今天天气真好！'</span>;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>所谓sayHello的父作用域就是这个名叫testC的控制器所管辖的范围，指令与父作用域的关系可以有如下取值：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">取值</th>
+<th style="text-align:center">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">false</td>
+<td style="text-align:center">默认值。使用父作用域作为自己的作用域</td>
+</tr>
+<tr>
+<td style="text-align:center">true</td>
+<td style="text-align:center">新建一个作用域，该作用域继承父作用域</td>
+</tr>
+<tr>
+<td style="text-align:center">javascript对象</td>
+<td style="text-align:center">与父作用域隔离，并指定可以从父作用域访问的变量</td>
+</tr>
+</tbody>
+</table>
+<p>　　乍一看取值为false和true好像没什么区别，因为取值为true时会继承父作用域，即父作用域中的任何变量都可以访问到，效果跟直接使用父作用域差不多。但细细一想还是有区别的，有了自己的作用域后就可以在里面定义自己的东西，与跟父作用域混在一起是有本质上的区别。好比是父亲的钱你想花多少花多少，可你自己挣的钱父亲能花多少就不好说了。你若想看这两个作用域的区别，可以在link函数中打印出来看看，还记得link函数中可以访问到scope吧。</p>
+<p>　　最有用的还是取值为第三种，一个对象，可以用键值来显式的指明要从父作用域中使用属性的方式。当scope值为一个对象时，我们便建立了一个与父层隔离的作用域，不过也不是完全隔离，我们可以手工搭一座桥梁，并放行某些参数。我们要实现对美女说各种话就得靠这个。使用起来像这样：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">scope: &#123;</div><div class="line">        attributeName1: <span class="string">'BINDING_STRATEGY'</span>,</div><div class="line">        attributeName2: <span class="string">'BINDING_STRATEGY'</span>,...</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>　　键为属性名称，值为绑定策略。等等！啥叫绑定策略？最讨厌冒新名词却不解释的行为！别急，听我慢慢道来。</p>
+<p>　　先说属性名称吧，你是不是认为这个attributeName1就是父作用域中的某个变量名称？错！其实这个属性名称是指令自己的模板中要使用的一个名称，并不对应父作用域中的变量。好难懂啊。。。可能这么说太不负责任了，稍后的例子中我们来说明。再来看绑定策略，它的取值按照如下的规则：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">符号</th>
+<th style="text-align:center">说明</th>
+<th style="text-align:center">举例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">@</td>
+<td style="text-align:center">传递一个字符串作为属性的值.</td>
+<td style="text-align:center">str : ‘@string’</td>
+</tr>
+<tr>
+<td style="text-align:center">=</td>
+<td style="text-align:center">使用父作用域中的一个属性，绑定数据到指令的属性中.</td>
+<td style="text-align:center">name : ‘=username’</td>
+</tr>
+<tr>
+<td style="text-align:center">&amp;</td>
+<td style="text-align:center">使用父作用域中的一个函数,可以在指令中调用</td>
+<td style="text-align:center">getName : ‘&amp;getUserName’</td>
+</tr>
+</tbody>
+</table>
+<p>　　总之就是用符号前缀来说明如何为指令传值。</p>
+<h4 id="举例说明"><a href="#举例说明" class="headerlink" title="举例说明"></a>举例说明</h4><p>　　我想要实现上面想像的跟美女多说点话的功能，即我们给sayHello指令加一个属性，通过给属性赋值来动态改变说话的内容。主要代码如下：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">app.controller(<span class="string">'testC'</span>,<span class="function"><span class="keyword">function</span>(<span class="params">$scope</span>)</span>&#123;</div><div class="line">        $scope.content = <span class="string">'今天天气真好！'</span>;</div><div class="line">    &#125;);</div><div class="line">app.directive(<span class="string">'sayHello'</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="keyword">return</span> &#123;</div><div class="line">        restrict : <span class="string">'E'</span>,</div><div class="line">        template : <span class="string">'&lt;div&gt;hello，&lt;b ng-transclude&gt;&lt;/b&gt;,&#123;­&#123;cont&#125;­&#125;&lt;/div&gt;'</span>,</div><div class="line">        replace : <span class="literal">true</span>,</div><div class="line">        transclude : <span class="literal">true</span>,</div><div class="line">        scope : &#123;</div><div class="line">             cont : <span class="string">'=speak'</span></div><div class="line">         &#125;</div><div class="line">    &#125;;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>　　然后在模板中，我们如下使用指令：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">ng-controller</span>=<span class="string">"testC"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">say-hello</span> <span class="attr">speak</span>=<span class="string">"content"</span>&gt;</span>美女<span class="tag">&lt;/<span class="name">say-hello</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>　　执行的流程是这样的:</p>
+<pre><code>1. 指令被编译的时候会扫描到template中的{ {cont} }，发现是一个表达式；
+2. 查找scope中的规则：通过speak与父作用域绑定，方式是传递父作用域中的属性；
+3. speak与父作用域中的content属性绑定，找到它的值“今天天气真好！”
+4. 将content的值显示在模板中
+</code></pre><p>　　这样我们说话的内容cont就跟父作用域绑定到了一其，如果动态修改父作用域的content的值，页面上的内容就会跟着改变，正如你点击“换句话”所看到的一样。</p>
+<p>　　下面有更重要的事情要做，我们说好了要写一个真正能用的东西来着。接下来就结合所学到的东西来写一个折叠菜单，即点击可展开，再点击一次就收缩回去的菜单，（偷偷告诉你，这个例子其实是从大漠穷秋的书上抄来的~）。</p>
+<p>　　控制器及指令的代码如下：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">app.controller(<span class="string">'testC'</span>,<span class="function"><span class="keyword">function</span>(<span class="params">$scope</span>)</span>&#123;</div><div class="line">    $scope.title = <span class="string">'个人简介'</span>;</div><div class="line">    $scope.text = <span class="string">'大家好，我是一名前端工程师，我正在研究AngularJs，欢迎大家与我交流，Email:lvxiaobao_fbi@163.com'</span>;</div><div class="line">&#125;);</div><div class="line">app.directive(<span class="string">'expander'</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="keyword">return</span> &#123;</div><div class="line">        restrict : <span class="string">'E'</span>,</div><div class="line">        templateUrl : <span class="string">'expanderTemp.html'</span>,</div><div class="line">        replace : <span class="literal">true</span>,</div><div class="line">        transclude : <span class="literal">true</span>,</div><div class="line">        scope : &#123;</div><div class="line">            mytitle : <span class="string">'=etitle'</span></div><div class="line">        &#125;,</div><div class="line">        link : <span class="function"><span class="keyword">function</span>(<span class="params">scope,element,attris</span>)</span>&#123;</div><div class="line">            scope.showText = <span class="literal">false</span>;</div><div class="line">            scope.toggleText = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">                scope.showText = ! scope.showText;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>HTML中的代码如下：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">id</span>=<span class="string">"expanderTemp.html"</span> <span class="attr">type</span>=<span class="string">"text/ng-template"</span>&gt;</span><span class="xml"></span></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"mybox"</span>&gt;</span></div><div class="line">                <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"mytitle"</span> <span class="attr">ng-click</span>=<span class="string">"toggleText()"</span>&gt;</span></div><div class="line">                &#123;&#123;mytitle&#125;&#125;</div><div class="line">                <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">                <span class="tag">&lt;<span class="name">div</span> <span class="attr">ng-transclude</span> <span class="attr">ng-show</span>=<span class="string">"showText"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>　　看看运行效果：<br><img src="/img/342414324.png" alt="">;</p>
+<p>　　还是比较容易看懂的，我只做一点必要的解释。首先我们定义模板的时候使用了ng的一种定义方式<code>&lt;script type=”text/ng-template” id=&quot;expanderTemp.html&quot;&gt;</code>，在指令中就可以用templateUrl根据这个id来找到模板。指令中的{­{mytitle}­}表达式由scope参数指定从etitle传递，etitle指向了父作用域中的title。为了实现点击标题能够展开收缩内容，我们把这部分逻辑放在了link函数中，link函数可以访问到指令的作用域，我们定义showText属性来表示内容部分的显隐，定义toggleText函数来进行控制，然后在模板中绑定好。 如果把showText和toggleText定义在controller中，作为$scope的属性呢？显然是不行的，这就是隔离作用域的意义所在，父作用域中的东西除了title之外通通被屏蔽。</p>
+<p>　　上面的例子中，scope参数使用了=号来指定获取属性的类型为父作用域的属性，如果我们想在指令中使用父作用域中的函数，使用&amp;符号即可，是同样的原理。</p>
+<p>　　以上是本人对scope的理解，另外有一篇文章对Angular作用域的解释也比较详细，有兴趣可以参考<a href="http://www.angularjs.cn/A09C" target="_blank" rel="external">http://www.angularjs.cn/A09C</a>。</p>
+<h3 id="五、使用controller和require进行指令间通信"><a href="#五、使用controller和require进行指令间通信" class="headerlink" title="五、使用controller和require进行指令间通信"></a>五、使用controller和require进行指令间通信</h3><p>　　使用指令来定义一个ui组件是个不错的想法，首先使用起来方便，只需要一个标签或者属性就可以了，其次是可复用性高，通过controller可以动态控制ui组件的内容，而且拥有双向绑定的能力。当我们想做的组件稍微复杂一点，就不是一个指令可以搞定的了，就需要指令与指令的协作才可以完成，这就需要进行指令间通信。</p>
+<p>　　想一下我们进行模块化开发的时候的原理，一个模块暴露（exports）对外的接口，另外一个模块引用（require）它，便可以使用它所提供的服务了。ng的指令间协作也是这个原理，这也正是自定义指令时controller参数和require参数的作用。</p>
+<p>　　controller参数用于定义指令对外提供的接口，它的写法如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">controller: function controllerConstructor($scope, $element, $attrs, $transclude)</div></pre></td></tr></table></figure>
+<p>　　它是一个构造器函数，将来可以构造出一个实例传给引用它的指令。为什么叫controller（控制器）呢？其实就是告诉引用它的指令，你可以控制我。至于可以控制那些东西呢，就需要在函数体中进行定义了。先看controller可以使用的参数，作用域、节点、节点的属性、节点内容的迁移，这些都可以通过依赖注入被传进来，所以你可以根据需要只写要用的参数。关于如何对外暴露接口，我们在下面的例子来说明。</p>
+<p>　　require参数便是用来指明需要依赖的其他指令，它的值是一个字符串，就是所依赖的指令的名字，这样框架就能按照你指定的名字来从对应的指令上面寻找定义好的controller了。不过还稍稍有点特别的地方，为了让框架寻找的时候更轻松些，我们可以在名字前面加个小小的前缀：^，表示从父节点上寻找，使用起来像这样：require : ‘^directiveName’，如果不加，$compile服务只会从节点本身寻找。另外还可以使用前缀：？，此前缀将告诉$compile服务，如果所需的controller没找到，不要抛出异常。</p>
+<p>　　所需要了解的知识点就这些，接下来是例子时间，依旧是从书上抄来的一个例子，我们要做的是一个手风琴菜单，就是多个折叠菜单并列在一起，此例子用来展示指令间的通信再合适不过。</p>
+<p>　　首先我们需要定义外层的一个结构，起名为accordion，代码如下：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">app.directive(<span class="string">'accordion'</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">        <span class="keyword">return</span> &#123;</div><div class="line">            restrict : <span class="string">'E'</span>,</div><div class="line">            template : <span class="string">'&lt;div ng-transclude&gt;&lt;/div&gt;'</span>,</div><div class="line">            replace : <span class="literal">true</span>,</div><div class="line">            transclude : <span class="literal">true</span>,</div><div class="line">            controller :<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">                <span class="keyword">var</span> expanders = [];</div><div class="line">                <span class="keyword">this</span>.gotOpended = <span class="function"><span class="keyword">function</span>(<span class="params">selectedExpander</span>)</span>&#123;</div><div class="line">                    angular.forEach(expanders,<span class="function"><span class="keyword">function</span>(<span class="params">e</span>)</span>&#123;</div><div class="line">                        <span class="keyword">if</span>(selectedExpander != e)&#123;</div><div class="line">                            e.showText = <span class="literal">false</span>;</div><div class="line">                        &#125;</div><div class="line">                    &#125;);</div><div class="line">                &#125;</div><div class="line"></div><div class="line">                <span class="keyword">this</span>.addExpander = <span class="function"><span class="keyword">function</span>(<span class="params">e</span>)</span>&#123;</div><div class="line">                    expanders.push(e);</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;);</div></pre></td></tr></table></figure>
+<p>　　需要解释的只有controller中的代码，我们定义了一个折叠菜单数组expanders，并且通过this关键字来对外暴露接口，提供两个方法。gotOpended接受一个selectExpander参数用来修改数组中对应expander的showText属性值，从而实现对各个子菜单的显隐控制。addExpander方法对外提供向expanders数组增加元素的接口，这样在子菜单的指令中，便可以调用它把自身加入到accordion中。</p>
+<p>　　看一下我们的expander需要做怎样的修改呢：</p>
+ <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">app.directive(<span class="string">'expander'</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">        <span class="keyword">return</span> &#123;</div><div class="line">            restrict : <span class="string">'E'</span>,</div><div class="line">            templateUrl : <span class="string">'expanderTemp.html'</span>,</div><div class="line">            replace : <span class="literal">true</span>,</div><div class="line">            transclude : <span class="literal">true</span>,</div><div class="line">            <span class="built_in">require</span> : <span class="string">'^?accordion'</span>,</div><div class="line">            scope : &#123;</div><div class="line">                title : <span class="string">'=etitle'</span></div><div class="line">            &#125;,</div><div class="line">            link : <span class="function"><span class="keyword">function</span>(<span class="params">scope,element,attris,accordionController</span>)</span>&#123;</div><div class="line">                scope.showText = <span class="literal">false</span>;</div><div class="line">                accordionController.addExpander(scope);</div><div class="line">                scope.toggleText = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">                    scope.showText = ! scope.showText;</div><div class="line">                    accordionController.gotOpended(scope);</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125;;</div><div class="line">    &#125;);</div></pre></td></tr></table></figure>
+<p>　　首先使用require参数引入所需的accordion指令，添加?^前缀表示从父节点查找并且失败后不抛出异常。然后便可以在link函数中使用已经注入好的accordionController了，调用addExpander方法将自己的作用域作为参数传入，以供accordionController访问其属性。然后在toggleText方法中，除了要把自己的showText修改以外，还要调用accordionController的gotOpended方法通知父层指令把其他菜单给收缩起来。</p>
+<p>　　指令定义好后，我们就可以使用了，使用起来如下：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">accordion</span>&gt;</span></div><div class="line">　　<span class="tag">&lt;<span class="name">expander</span> <span class="attr">ng-repeat</span>=<span class="string">"expander in expanders"</span> <span class="attr">etitle</span>=<span class="string">"expander.title"</span>&gt;</span>&#123;­&#123;expander.text&#125;­&#125;<span class="tag">&lt;/<span class="name">expander</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">accordion</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>　　外层使用了accordion指令，内层使用expander指令，并且在expander上用ng-repeat循环输出子菜单。请注意这里遍历的数组expanders可不是accordion中定义的那个expanders，如果你这么认为了，说明还是对作用域不够了解。此expanders是ng-repeat的值，它是在外层controller中的，所以，在testC中，我们需要添加如下数据：</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">$scope.expanders = [</div><div class="line">            &#123;title: &apos;个人简介&apos;,</div><div class="line">             text: &apos;大家好，我是一名前端工程师，我正在研究AngularJs，欢迎大家与我交流，Email:lvxiaobao_fbi@163.com&apos;&#125;,</div><div class="line">            &#123;title: &apos;我的爱好&apos;,</div><div class="line">             text: &apos;运动类：篮球、足球、乒乓球。  电脑类：前端技术、打DOTA。  其他类：欣赏美女&apos;&#125;,</div><div class="line">            &#123;title: &apos;性格及工作&apos;,</div><div class="line">             text: &apos;追求完美主义的处女座极品男人就是我啦~严重的代码洁癖以及对垃圾代码的零容忍！希望通过自己的努力进入理想的公司工作。&apos;&#125;</div><div class="line">        ];</div></pre></td></tr></table></figure>
+<p>　　理解了其中的道理之后，使用起来就可以得心应手了，我也将在以后的实践中尝试编写更加复杂的组件，此小例子就当是抛砖引玉了~</p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+
+
+    <nav id="article-nav">
+        
+        
+            <div id="article-nav-older" class="article-nav-title">
+                <a href="/2016/09/08/angularJS模板中常用指令/">
+                    angularJS模板中常用指令
+                </a>
+            </div>
+        
+    </nav>
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+        <strong class="toc-title">文章目录</strong>
+        
+            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#一、指令的编译过程及命名方式"><span class="toc-number">1.</span> <span class="toc-text">一、指令的编译过程及命名方式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#二、自定义指令的配置参数"><span class="toc-number">2.</span> <span class="toc-text">二、自定义指令的配置参数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#三、理解compile和link"><span class="toc-number">3.</span> <span class="toc-text">三、理解compile和link</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#指令的解析流程详解"><span class="toc-number">3.1.</span> <span class="toc-text">指令的解析流程详解</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#compile和link的区别"><span class="toc-number">3.2.</span> <span class="toc-text">compile和link的区别</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#四、使用scope为指令划分作用域"><span class="toc-number">4.</span> <span class="toc-text">四、使用scope为指令划分作用域</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#举例说明"><span class="toc-number">4.1.</span> <span class="toc-text">举例说明</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#五、使用controller和require进行指令间通信"><span class="toc-number">5.</span> <span class="toc-text">五、使用controller和require进行指令间通信</span></a></li></ol>
+        
+    </div>
+    <style>
+        .left-col .switch-btn,
+        .left-col .switch-area {
+            display: none;
+        }
+        .toc-level-3 i,
+        .toc-level-3 ol {
+            display: none !important;
+        }
+    </style>
+
+    <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+
+    <script>
+        yiliaConfig.toc = ["隐藏目录", "显示目录", !!"false"];
+    </script>
+
+
+
+    
+<div class="share">
+    
+        <div class="bdsharebuttonbox">
+            <a href="#" class="fa fa-twitter bds_twi" data-cmd="twi" title="分享到推特"></a>
+            <a href="#" class="fa fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+            <a href="#" class="fa fa-qq bds_sqq" data-cmd="sqq" title="分享给 QQ 好友"></a>
+            <a href="#" class="fa fa-files-o bds_copy" data-cmd="copy" title="复制网址"></a>
+            <a href="#" class="fa fa fa-envelope-o bds_mail" data-cmd="mail" title="通过邮件分享"></a>
+            <a href="#" class="fa fa-weixin bds_weixin" data-cmd="weixin" title="生成文章二维码"></a>
+            <a href="#" class="fa fa-share-alt bds_more" data-cmd="more"></i></a>
+        </div>
+        <script>
+            window._bd_share_config={
+                "common":{"bdSnsKey":{},"bdText":"angularJS自定义指令　| Lynn's Blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+        </script>
+    
+
+    
+</div>
+
+
+
+
+
+
+
+    
+
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
+        
+
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+
+        
+            <a href="/2016/09/08/angularJS模板中常用指令/" title="下一篇: angularJS模板中常用指令">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2016/09/13/angularJS自定义指令/">angularJS自定义指令</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/08/angularJS模板中常用指令/">angularJS模板中常用指令</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/29/angularJS过滤器详解/">angularJS-filter过滤器详解</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/26/angularJS指令详解/">angularJS-direction指令的API</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/19/开发中遇到的问题/">开发中遇到的问题</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/12/css动画/">CSS动画</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/12/jsonp/">jsonp</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/11/循环遍历/">循环遍历</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/02/markdown的使用/">markdown常用语法</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/01/搭建hexo中遇到的问题/">搭建hexo，出现的问题</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/01/我的第一篇博客/">我的第一篇博客</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/01/hello-world/">Hello World</a></li></ul>
+
+
+
+
+    <script>
+        
+    </script>
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                <i class="fa fa-copyright"></i> 
+                2016 Lynn
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank" title="快速、简洁且高效的博客框架">Hexo</a>  Theme Yelee by Lynn <i class="fa fa-heart animated infinite pulse"></i>
+            </div>
+        </div>
+        
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style='display:none'>
+                        <span id="site-visit" title="本站到访数"><i class="fa fa-user" aria-hidden="true"></i><span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>| </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style='display:none'>
+                        <span id="page-visit"  title="本页阅读量"><i class="fa fa-eye animated infinite pulse" aria-hidden="true"></i><span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
+        
+    </div>
+</footer>
+    </div>
+    
+<script data-main="/js/main.js" src="//cdn.bootcss.com/require.js/2.2.0/require.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var iPad = window.navigator.userAgent.indexOf('iPad');
+            if (iPad > -1 || $(".left-col").css("display") === "none") {
+                var bgColorList = ["#9db3f4", "#414141", "#e5a859", "#f5dfc6", "#c084a0", "#847e72", "#cd8390", "#996731"];
+                var bgColor = Math.ceil(Math.random() * (bgColorList.length - 1));
+                $("body").css({"background-color": bgColorList[bgColor], "background-size": "cover"});
+            }
+            else {
+                var backgroundnum = 6;
+                var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+                $("body").css({"background": backgroundimg, "background-attachment": "fixed", "background-size": "cover"});
+            }
+        })
+    </script>
+
+
+
+
+
+<div class="scroll" id="scroll">
+    <a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments" onclick="load$hide();" title="查看评论"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    // Open in New Window
+    
+        var oOpenInNew = {
+            
+            
+            
+            
+            
+            
+             archives: ".archive-article-title", 
+             miniArchives: "a.post-list-link", 
+            
+             friends: "#js-friends a", 
+             socail: ".social a" 
+        }
+        for (var x in oOpenInNew) {
+            $(oOpenInNew[x]).attr("target", "_blank");
+        }
+    
+</script>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+  </div>
+</body>
+</html>
