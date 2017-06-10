@@ -37,9 +37,11 @@
 
 
 
-    <link rel="shortcut icon" href="/img/hahaha.jpg">
+    <link rel="shortcut icon" href="/img/sdz.jpg">
 
 
+
+    <link href="//cdn.bootcss.com/animate.css/3.5.1/animate.min.css" rel="stylesheet">
 
 
 
@@ -66,7 +68,7 @@
 <script>
     var yiliaConfig = {
         fancybox: true,
-        animate: false,
+        animate: true,
         isHome: false,
         isPost: true,
         isArchive: false,
@@ -79,7 +81,9 @@
 </script>
 
 
-    <script> yiliaConfig.jquery_ui = [false]; </script>
+    <script>
+        yiliaConfig.jquery_ui = [true, "//cdn.bootcss.com/jqueryui/1.10.4/jquery-ui.min.js", "//cdn.bootcss.com/jqueryui/1.10.4/css/jquery-ui.min.css"];
+    </script>
 
 
 
@@ -98,7 +102,7 @@
 <div class="intrude-less">
     <header id="header" class="inner">
         <a href="/" class="profilepic">
-            <img src="/img/hahaha.jpg" class="animated zoomIn">
+            <img src="/img/sdz.jpg" class="animated zoomIn">
         </a>
         <hgroup>
           <h1 class="header-author"><a href="/">Lynn</a></h1>
@@ -183,7 +187,7 @@
                 
                 <section class="switch-part switch-part2">
                     <div class="widget tagcloud" id="js-tagcloud">
-                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/angularJS/">angularJS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css/">css</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/js/">js</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/markdown/">markdown</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/seajs/">seajs</a></li></ul>
+                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/angularJS/">angularJS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css/">css</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jquery/">jquery</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/js/">js</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/markdown/">markdown</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/seajs/">seajs</a></li></ul>
                     </div>
                 </section>
                 
@@ -195,8 +199,6 @@
                       <a class="main-nav-link switch-friends-link" href="https://hexo.io">Hexo</a>
                     
                       <a class="main-nav-link switch-friends-link" href="https://pages.github.com/">GitHub</a>
-                    
-                      <a class="main-nav-link switch-friends-link" href="http://moxfive.xyz/">MOxFIVE</a>
                     
                     </div>
                 </section>
@@ -223,7 +225,7 @@
     <div class="intrude-less">
         <header id="header" class="inner">
             <a href="/" class="profilepic">
-                <img src="/img/hahaha.jpg" class="animated zoomIn">
+                <img src="/img/sdz.jpg" class="animated zoomIn">
             </a>
             <hgroup>
               <h1 class="header-author"><a href="/" title="回到主页">Lynn</a></h1>
@@ -367,7 +369,7 @@
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">templateUrl : ‘helloTemplate.html’</div></pre></td></tr></table></figure>
 <p>系统会自动发一个http请求来获取到对应的模板内容。是不是很方便呢，你不用纠结于拼接字符串的烦恼了。如果你是一个追求完美的有考虑性能的工程师，可能会发问：那这样的话岂不是要牺牲一个http请求？</p>
 <p>这也不用担心，因为ng的模板还可以用另外一种方式定义，那就是使用script标签。使用起来如下：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;script type=<span class="string">"text/ng-template"</span> id=<span class="string">"helloTemplate.html"</span>&gt;</div><div class="line">         &lt;div&gt;hello&lt;/div&gt;</div><div class="line">&lt;<span class="regexp">/script&gt;</span></div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;script type=<span class="string">"text/ng-template"</span> id=<span class="string">"helloTemplate.html"</span>&gt;</div><div class="line">         <span class="xml"><span class="tag">&lt;<span class="name">div</span>&gt;</span>hello<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></div><div class="line">&lt;<span class="regexp">/script&gt;</span></div></pre></td></tr></table></figure>
 <p>你可以把这段代码写在页面头部，这样就不必去请求它了。在实际项目中，你也可以将所有的模板内容集中在一个文件中，只加载一次，然后根据id来取用。</p>
 <p>接下来我们来看另一个比较有用的配置：transclude，定义是否将当前元素的内容转移到模板中。看解释有点抽象，不过亲手试试就很清楚了，看下面的代码：</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">app.directive(<span class="string">'sayHello'</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">                   <span class="keyword">return</span> &#123;</div><div class="line">                            restrict : <span class="string">'E'</span>,</div><div class="line">                            template : <span class="string">'&lt;div&gt;hello，&lt;b ng-transclude&gt;&lt;/b&gt;&lt;/div&gt;'</span>,</div><div class="line">                            replace : <span class="literal">true</span>,</div><div class="line">                            transclude : <span class="literal">true</span></div><div class="line">                   &#125;;</div><div class="line">         &#125;)</div></pre></td></tr></table></figure>
@@ -590,7 +592,7 @@
         
     </div>
 
-    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2017/06/09/兼容性问题/">兼容性问题</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/20/seajs的使用/">seajs的使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/13/angularJS自定义指令/">angularJS自定义指令</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/08/angularJS模板中常用指令/">angularJS模板中常用指令</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/29/angularJS过滤器详解/">angularJS-filter过滤器详解</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/26/angularJS指令详解/">angularJS-direction指令的API</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/19/开发中遇到的问题/">开发中遇到的问题</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/12/css动画/">CSS动画</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/12/jsonp/">jsonp</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/11/循环遍历/">循环遍历</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/02/markdown的使用/">markdown常用语法</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/01/搭建hexo中遇到的问题/">搭建hexo，出现的问题</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/01/我的第一篇博客/">我的第一篇博客</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/01/hello-world/">Hello World</a></li></ul>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2017/06/10/JS瀑布流布局模式/">JS瀑布流布局模式</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/10/倒计时/">倒计时</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/09/兼容性问题/">兼容性问题</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/20/seajs的使用/">seajs的使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/13/angularJS自定义指令/">angularJS自定义指令</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/08/angularJS模板中常用指令/">angularJS模板中常用指令</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/29/angularJS过滤器详解/">angularJS-filter过滤器详解</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/26/angularJS指令详解/">angularJS-direction指令的API</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/19/开发中遇到的问题/">开发中遇到的问题</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/12/css动画/">CSS动画</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/12/jsonp/">jsonp</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/11/循环遍历/">循环遍历</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/02/markdown的使用/">markdown常用语法</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/01/搭建hexo中遇到的问题/">搭建hexo，出现的问题</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/01/我的第一篇博客/">我的第一篇博客</a></li></ul>
 
 
 
@@ -644,7 +646,7 @@
                 $("body").css({"background-color": bgColorList[bgColor], "background-size": "cover"});
             }
             else {
-                var backgroundnum = 6;
+                var backgroundnum = 1;
                 var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
                 $("body").css({"background": backgroundimg, "background-attachment": "fixed", "background-size": "cover"});
             }
