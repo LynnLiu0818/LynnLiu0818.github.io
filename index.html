@@ -288,12 +288,8 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h3 id="H5页面在IOS上滑动问题"><a href="#H5页面在IOS上滑动问题" class="headerlink" title="H5页面在IOS上滑动问题"></a>H5页面在IOS上滑动问题</h3><p>IOS本身有个特性为弹性滑动，如果IOSAPP开启此功能，会造成H5页面中，底部固定定位的元素在滑动时移位的现象，此功能关闭之后，IOS页面滑动便会不顺畅</p>
-<p>解决办法： 为需要滚动的区域，增加<br>height:100%;<br>overflow: scroll;<br>-webkit-overflow-scrolling:touch;<br>同时，想去掉滚动区域的下拉框，可增加属性：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">::-webkit-scrollbar &#123;</div><div class="line">     display: none;</div><div class="line"> &#125;</div></pre></td></tr></table></figure></p>
-<p>问题：</p>
-<pre><code>1. 使用此方法，会比较消耗浏览器性能。
-2. 上述方法在IOS端有个问题，当滑动该区域时，多下拉几次，会造成视图的抖动，暂时未解决。
-</code></pre>
+              H5页面在app端滑动，显示问题
+          
       
     </div>
     
@@ -306,6 +302,10 @@
         <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/app/">app</a></li></ul>
     </div>
 
+      
+        <p class="article-more-link">
+          <a href="/2017/10/22/H5页面在app端滑动，显示问题/#more">阅读全文 >></a>
+        </p>
       
       <div class="clearfix"></div>
     </div>
