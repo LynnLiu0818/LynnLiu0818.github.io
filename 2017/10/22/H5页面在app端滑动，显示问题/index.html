@@ -21,7 +21,7 @@
 <meta property="og:url" content="http://yoursite.com/2017/10/22/H5页面在app端滑动，显示问题/index.html">
 <meta property="og:site_name" content="Lynn's Blog">
 <meta property="og:description" content="H5页面在app端滑动，显示问题">
-<meta property="og:updated_time" content="2017-10-22T07:30:34.598Z">
+<meta property="og:updated_time" content="2017-11-02T12:39:35.371Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="H5页面在app端滑动，显示问题">
 <meta name="twitter:description" content="H5页面在app端滑动，显示问题">
@@ -299,8 +299,11 @@
         <h3 id="H5页面在IOS上滑动问题"><a href="#H5页面在IOS上滑动问题" class="headerlink" title="H5页面在IOS上滑动问题"></a>H5页面在IOS上滑动问题</h3><p>IOS本身有个特性为弹性滑动，如果IOSAPP开启此功能，会造成H5页面中，底部固定定位的元素在滑动时移位的现象，此功能关闭之后，IOS页面滑动便会不顺畅</p>
 <p>解决办法： 为需要滚动的区域，增加<br>height:100%;<br>overflow: scroll;<br>-webkit-overflow-scrolling:touch;<br>同时，想去掉滚动区域的下拉框，可增加属性：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">::-webkit-scrollbar &#123;</div><div class="line">     display: none;</div><div class="line"> &#125;</div></pre></td></tr></table></figure></p>
 <p>问题：</p>
-<pre><code>1. 使用此方法，会比较消耗浏览器性能。
+<pre><code>1. 使用此方法，会比较消耗浏览器性能,增加app内存
 2. 上述方法在IOS端有个问题，当滑动该区域时，多下拉几次，会造成视图的抖动，暂时未解决。
+</code></pre><p>ps：</p>
+<pre><code>1. 当滑动该区域时，多下拉几次，会造成视图的抖动的原因是：
+     当页面存在轮播图时，下拉，轮播图进行切换的时候，图片会回到原来的位置，因此会发生抖动
 </code></pre>
       
     </div>
@@ -311,6 +314,12 @@
 
 
     <nav id="article-nav">
+        
+            <div id="article-nav-newer" class="article-nav-title">
+                <a href="/2017/11/02/开发中遇到的问题/">
+                    开发中遇到的问题
+                </a>
+            </div>
         
         
             <div id="article-nav-older" class="article-nav-title">
@@ -383,7 +392,9 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
+            <a href="/2017/11/02/开发中遇到的问题/" title="上一篇: 开发中遇到的问题">
+                <i class="fa fa-angle-left"></i>
+            </a>
         
 
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
@@ -395,7 +406,7 @@
         
     </div>
 
-    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2017/10/22/H5页面在app端滑动，显示问题/">H5页面在app端滑动，显示问题</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/12/如何在GitHub-Pages搭建自己写的页面/">如何在GitHub Pages搭建自己写的页面</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/10/JS瀑布流布局模式/">JS瀑布流布局模式</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/10/倒计时/">倒计时</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/09/兼容性问题/">兼容性问题</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/20/seajs的使用/">seajs的使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/13/angularJS自定义指令/">angularJS自定义指令</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/08/angularJS模板中常用指令/">angularJS模板中常用指令</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/29/angularJS过滤器详解/">angularJS-filter过滤器详解</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/26/angularJS指令详解/">angularJS-direction指令的API</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/19/开发中遇到的问题/">开发中遇到的问题</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/12/css动画/">CSS动画</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/12/jsonp/">jsonp</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/11/循环遍历/">循环遍历</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/02/markdown的使用/">markdown常用语法</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/01/搭建hexo中遇到的问题/">搭建hexo，出现的问题</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/01/我的第一篇博客/">我的第一篇博客</a></li></ul>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2017/11/02/开发中遇到的问题/">开发中遇到的问题</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/22/H5页面在app端滑动，显示问题/">H5页面在app端滑动，显示问题</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/12/如何在GitHub-Pages搭建自己写的页面/">如何在GitHub Pages搭建自己写的页面</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/10/JS瀑布流布局模式/">JS瀑布流布局模式</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/10/倒计时/">倒计时</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/09/兼容性问题/">兼容性问题</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/20/seajs的使用/">seajs的使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/13/angularJS自定义指令/">angularJS自定义指令</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/08/angularJS模板中常用指令/">angularJS模板中常用指令</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/29/angularJS过滤器详解/">angularJS-filter过滤器详解</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/26/angularJS指令详解/">angularJS-direction指令的API</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/12/css动画/">CSS动画</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/12/jsonp/">jsonp</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/11/循环遍历/">循环遍历</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/02/markdown的使用/">markdown常用语法</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/01/搭建hexo中遇到的问题/">搭建hexo，出现的问题</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/01/我的第一篇博客/">我的第一篇博客</a></li></ul>
 
 
 
