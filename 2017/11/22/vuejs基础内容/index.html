@@ -15,16 +15,16 @@
 
 
 
-<meta name="description" content="开发中遇到的问题+其大致的解决办法">
+<meta name="description" content="Vue.js的基础内容">
 <meta property="og:type" content="article">
-<meta property="og:title" content="开发中遇到的问题">
-<meta property="og:url" content="http://yoursite.com/2017/11/02/开发中遇到的问题/index.html">
+<meta property="og:title" content="vuejs基础内容">
+<meta property="og:url" content="http://yoursite.com/2017/11/22/vuejs基础内容/index.html">
 <meta property="og:site_name" content="Lynn's Blog">
-<meta property="og:description" content="开发中遇到的问题+其大致的解决办法">
-<meta property="og:updated_time" content="2017-11-14T03:01:51.197Z">
+<meta property="og:description" content="Vue.js的基础内容">
+<meta property="og:updated_time" content="2017-11-23T03:37:18.237Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="开发中遇到的问题">
-<meta name="twitter:description" content="开发中遇到的问题+其大致的解决办法">
+<meta name="twitter:title" content="vuejs基础内容">
+<meta name="twitter:description" content="Vue.js的基础内容">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -56,7 +56,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>开发中遇到的问题 | Lynn&#39;s Blog</title>
+<title>vuejs基础内容 | Lynn&#39;s Blog</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -256,11 +256,11 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
-      <div class="body-wrap"><article id="post-开发中遇到的问题" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-vuejs基础内容" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2017/11/02/开发中遇到的问题/" class="article-date">
-      <time datetime="2017-11-02T05:49:20.000Z" itemprop="datePublished">2017-11-02</time>
+      <a href="/2017/11/22/vuejs基础内容/" class="article-date">
+      <time datetime="2017-11-22T15:36:17.000Z" itemprop="datePublished">2017-11-22</time>
 </a>
 
 
@@ -275,7 +275,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      开发中遇到的问题
+      vuejs基础内容
     </h1>
   
 
@@ -285,6 +285,10 @@
         
 
         
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vue/">vue</a></li></ul>
+    </div>
+
         <div class="clearfix"></div>
       </div>
       
@@ -292,17 +296,12 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h2 id="1-css"><a href="#1-css" class="headerlink" title="1. css"></a>1. css</h2><h3 id="1-img"><a href="#1-img" class="headerlink" title="1. img"></a>1. img</h3><ol>
-<li>当给img标签加上宽和高，src链接为空时，img便签会存在边框，无法用border: 0;去掉<br>解决办法：只给img标签加高度，设置图片cover，这样图片的大小就会等比缩放</li>
-</ol>
-<h3 id="2-背景"><a href="#2-背景" class="headerlink" title="2. 背景"></a>2. 背景</h3><ol>
-<li>弹出框想让背景无法滑动，需要给底层设置了“overflow:scroll”的标签设置为“overflow: hidden”</li>
-</ol>
-<h2 id="2-js"><a href="#2-js" class="headerlink" title="2. js"></a>2. js</h2><ol>
-<li>解决js算法算数来数字精度丢失的问题：<br>Math.round(Math.floor(Math.round((xxx + xxx) * 10000) / 100) / 100);</li>
-</ol>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">Math</span>的对象方法：</div><div class="line">abs(x)	返回 x 的绝对值。</div><div class="line">acos(x)	返回 x 的反余弦值。</div><div class="line">asin(x)	返回 x 的反正弦值。</div><div class="line">atan(x)	以介于 -PI/<span class="number">2</span> 与 PI/<span class="number">2</span> 弧度之间的数值来返回 x 的反正切值。</div><div class="line">atan2(y,x)	返回从 x 轴到点 (x,y) 的角度（介于 -PI/<span class="number">2</span> 与 PI/<span class="number">2</span> 弧度之间）。</div><div class="line">ceil(x)	对数进行上舍入。</div><div class="line">cos(x)	返回数的余弦。</div><div class="line">exp(x)	返回 Ex 的指数。</div><div class="line">floor(x)	对 x 进行下舍入。</div><div class="line">log(x)	返回数的自然对数（底为e）。</div><div class="line">max(x,y,z,...,n)	返回 x,y,z,...,n 中的最高值。</div><div class="line">min(x,y,z,...,n)	返回 x,y,z,...,n中的最低值。</div><div class="line">pow(x,y)	返回 x 的 y 次幂。</div><div class="line">random()	返回 <span class="number">0</span> ~ <span class="number">1</span> 之间的随机数。</div><div class="line">round(x)	把数四舍五入为最接近的整数。</div><div class="line">sin(x)	返回数的正弦。</div><div class="line">sqrt(x)	返回数的平方根。</div><div class="line">tan(x)	返回角的正切。</div></pre></td></tr></table></figure>
-<p>2、 问题：H5页面在IOS端，弹性滑动会造成在滑动过程中，其他任何事件包括点击事件无法执行，需要等到滑动结束才能触发，这是IOSapp系统自带的，暂时无法解决</p>
+        <h2 id="vue基础语法"><a href="#vue基础语法" class="headerlink" title="vue基础语法"></a>vue基础语法</h2><h3 id="绑定DOM元素属性"><a href="#绑定DOM元素属性" class="headerlink" title="绑定DOM元素属性"></a>绑定DOM元素属性</h3><h4 id="双大括号-数据的绑定"><a href="#双大括号-数据的绑定" class="headerlink" title="双大括号 数据的绑定"></a>双大括号 数据的绑定</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"app"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">p</span>&gt;</span>&#123;&#123; message &#125;&#125;<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="javascript"></span></div><div class="line"><span class="keyword">new</span> Vue(&#123;</div><div class="line">    el: <span class="string">"#app"</span>,</div><div class="line">    data: &#123;</div><div class="line">        message: <span class="string">"hello Vue.js"</span></div><div class="line">    &#125;</div><div class="line">&#125;)</div><div class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div></pre></td></tr></table></figure>
+<h4 id="v-bind绑定"><a href="#v-bind绑定" class="headerlink" title="v-bind绑定"></a>v-bind绑定</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"app-2"</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">span</span> <span class="attr">v-bind:title</span>=<span class="string">"message"</span>&gt;</span></div><div class="line">    鼠标悬停几秒钟查看此处动态绑定的提示信息！</div><div class="line">  <span class="tag">&lt;/<span class="name">span</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="javascript"></span></div><div class="line"><span class="keyword">var</span> app2 = <span class="keyword">new</span> Vue(&#123;</div><div class="line">  el: <span class="string">'#app-2'</span>,</div><div class="line">  data: &#123;</div><div class="line">    message: <span class="string">'页面加载于 '</span> + <span class="keyword">new</span> <span class="built_in">Date</span>().toLocaleString()</div><div class="line">  &#125;</div><div class="line">&#125;)</div><div class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div></pre></td></tr></table></figure>
+<h4 id="v-model绑定，它能轻松实现表单输入和应用状态之间的双向绑定"><a href="#v-model绑定，它能轻松实现表单输入和应用状态之间的双向绑定" class="headerlink" title="v-model绑定，它能轻松实现表单输入和应用状态之间的双向绑定"></a>v-model绑定，它能轻松实现表单输入和应用状态之间的双向绑定</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"app"</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">p</span>&gt;</span>&#123;&#123; message &#125;&#125;<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">input</span> <span class="attr">v-model</span>=<span class="string">"message"</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="javascript"></span></div><div class="line"><span class="keyword">var</span> app = <span class="keyword">new</span> Vue(&#123;</div><div class="line">  el: <span class="string">'#app'</span>,</div><div class="line">  data: &#123;</div><div class="line">    message: <span class="string">'Hello Vue!'</span></div><div class="line">  &#125;</div><div class="line">&#125;)</div><div class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div></pre></td></tr></table></figure>
+<h3 id="条件和循环"><a href="#条件和循环" class="headerlink" title="条件和循环"></a>条件和循环</h3><h4 id="条件判断-v-if"><a href="#条件判断-v-if" class="headerlink" title="条件判断 v-if"></a>条件判断 v-if</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"app-3"</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">p</span> <span class="attr">v-if</span>=<span class="string">"seen"</span>&gt;</span>现在你看到我了<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="javascript"></span></div><div class="line"><span class="keyword">var</span> app3 = <span class="keyword">new</span> Vue(&#123;</div><div class="line">  el: <span class="string">'#app-3'</span>,</div><div class="line">  data: &#123;</div><div class="line">    seen: <span class="literal">true</span></div><div class="line">  &#125;</div><div class="line">&#125;)</div><div class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div></pre></td></tr></table></figure>
+<h4 id="数据循环输出-v-for"><a href="#数据循环输出-v-for" class="headerlink" title="数据循环输出 v-for"></a>数据循环输出 v-for</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"app-4"</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">ol</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">li</span> <span class="attr">v-for</span>=<span class="string">"todo in todos"</span>&gt;</span></div><div class="line">      &#123;&#123; todo.text &#125;&#125;</div><div class="line">    <span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">ol</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="javascript"></span></div><div class="line"><span class="keyword">var</span> app4 = <span class="keyword">new</span> Vue(&#123;</div><div class="line">  el: <span class="string">'#app-4'</span>,</div><div class="line">  data: &#123;</div><div class="line">    todos: [</div><div class="line">      &#123; text: <span class="string">'学习 JavaScript'</span> &#125;,</div><div class="line">      &#123; text: <span class="string">'学习 Vue'</span> &#125;,</div><div class="line">      &#123; text: <span class="string">'整个牛项目'</span> &#125;</div><div class="line">    ]</div><div class="line">  &#125;</div><div class="line">&#125;)</div><div class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div></pre></td></tr></table></figure>
+<h3 id="事件绑定"><a href="#事件绑定" class="headerlink" title="事件绑定"></a>事件绑定</h3><h4 id="v-on-指令绑定一个事件监听器，通过它调用我们-Vue-实例中定义的方法"><a href="#v-on-指令绑定一个事件监听器，通过它调用我们-Vue-实例中定义的方法" class="headerlink" title="v-on 指令绑定一个事件监听器，通过它调用我们 Vue 实例中定义的方法"></a>v-on 指令绑定一个事件监听器，通过它调用我们 Vue 实例中定义的方法</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"app-5"</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">p</span>&gt;</span>&#123;&#123; message &#125;&#125;<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">button</span> <span class="attr">v-on:click</span>=<span class="string">"reverseMessage"</span>&gt;</span>逆转消息<span class="tag">&lt;/<span class="name">button</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="javascript"></span></div><div class="line"><span class="keyword">var</span> app5 = <span class="keyword">new</span> Vue(&#123;</div><div class="line">  el: <span class="string">'#app-5'</span>,</div><div class="line">  data: &#123;</div><div class="line">    message: <span class="string">'Hello Vue.js!'</span></div><div class="line">  &#125;,</div><div class="line">  methods: &#123;</div><div class="line">    reverseMessage: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">      <span class="keyword">this</span>.message = <span class="keyword">this</span>.message.split(<span class="string">''</span>).reverse().join(<span class="string">''</span>)</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;)</div><div class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div></pre></td></tr></table></figure>
 
       
     </div>
@@ -315,15 +314,15 @@
     <nav id="article-nav">
         
             <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2017/11/22/css3-动画效果实现方法大大全/">
-                    css3 动画效果实现方法大大全
+                <a href="/2017/11/23/vuejs组件化应用/">
+                    vuejs组件化应用
                 </a>
             </div>
         
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2017/10/22/H5页面在app端滑动，显示问题/">
-                    H5页面在app端滑动，显示问题
+                <a href="/2017/11/22/jQuery的动画效果/">
+                    jQuery的动画效果
                 </a>
             </div>
         
@@ -335,7 +334,7 @@
     <div id="toc" class="toc-article">
         <strong class="toc-title">文章目录</strong>
         
-            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-css"><span class="toc-number">1.</span> <span class="toc-text">1. css</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-img"><span class="toc-number">1.1.</span> <span class="toc-text">1. img</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-背景"><span class="toc-number">1.2.</span> <span class="toc-text">2. 背景</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-js"><span class="toc-number">2.</span> <span class="toc-text">2. js</span></a></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#vue基础语法"><span class="toc-number">1.</span> <span class="toc-text">vue基础语法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#绑定DOM元素属性"><span class="toc-number">1.1.</span> <span class="toc-text">绑定DOM元素属性</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#双大括号-数据的绑定"><span class="toc-number">1.1.1.</span> <span class="toc-text">双大括号 数据的绑定</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#v-bind绑定"><span class="toc-number">1.1.2.</span> <span class="toc-text">v-bind绑定</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#v-model绑定，它能轻松实现表单输入和应用状态之间的双向绑定"><span class="toc-number">1.1.3.</span> <span class="toc-text">v-model绑定，它能轻松实现表单输入和应用状态之间的双向绑定</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#条件和循环"><span class="toc-number">1.2.</span> <span class="toc-text">条件和循环</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#条件判断-v-if"><span class="toc-number">1.2.1.</span> <span class="toc-text">条件判断 v-if</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#数据循环输出-v-for"><span class="toc-number">1.2.2.</span> <span class="toc-text">数据循环输出 v-for</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#事件绑定"><span class="toc-number">1.3.</span> <span class="toc-text">事件绑定</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#v-on-指令绑定一个事件监听器，通过它调用我们-Vue-实例中定义的方法"><span class="toc-number">1.3.1.</span> <span class="toc-text">v-on 指令绑定一个事件监听器，通过它调用我们 Vue 实例中定义的方法</span></a></li></ol></li></ol></li></ol>
         
     </div>
     <style>
@@ -371,7 +370,7 @@
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"开发中遇到的问题　| Lynn's Blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"vuejs基础内容　| Lynn's Blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -391,7 +390,7 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2017/11/22/css3-动画效果实现方法大大全/" title="上一篇: css3 动画效果实现方法大大全">
+            <a href="/2017/11/23/vuejs组件化应用/" title="上一篇: vuejs组件化应用">
                 <i class="fa fa-angle-left"></i>
             </a>
         
@@ -399,7 +398,7 @@
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2017/10/22/H5页面在app端滑动，显示问题/" title="下一篇: H5页面在app端滑动，显示问题">
+            <a href="/2017/11/22/jQuery的动画效果/" title="下一篇: jQuery的动画效果">
                 <i class="fa fa-angle-right"></i>
             </a>
         

@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+
+    <!--[if lt IE 9]>
+        <style>body {display: none; background: none !important} </style>
+        <meta http-equiv="Refresh" Content="0; url=//outdatedbrowser.com/" />
+    <![endif]-->
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="format-detection" content="telephone=no" />
+<meta name="author" content="Lynn" />
+
+
+
+<meta name="description" content="...">
+<meta property="og:type" content="article">
+<meta property="og:title" content="jQuery的动画效果">
+<meta property="og:url" content="http://yoursite.com/2017/11/22/jQuery的动画效果/index.html">
+<meta property="og:site_name" content="Lynn's Blog">
+<meta property="og:description" content="...">
+<meta property="og:updated_time" content="2017-11-22T13:13:25.805Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="jQuery的动画效果">
+<meta name="twitter:description" content="...">
+
+<link rel="apple-touch-icon" href= "/apple-touch-icon.png">
+
+
+    <link rel="alternate" href="/atom.xml" title="Lynn&#39;s Blog" type="application/atom+xml">
+
+
+
+    <link rel="shortcut icon" href="/img/sdz.jpg">
+
+
+
+    <link href="//cdn.bootcss.com/animate.css/3.5.1/animate.min.css" rel="stylesheet">
+
+
+
+    <link href="//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.css" rel="stylesheet">
+
+
+
+    <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+    <link href="//cdn.bootcss.com/pace/1.0.2/themes/blue/pace-theme-minimal.css" rel="stylesheet">
+
+
+<link rel="stylesheet" href="/css/style.css">
+
+
+
+<link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+
+
+<title>jQuery的动画效果 | Lynn&#39;s Blog</title>
+
+<script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+
+<script>
+    var yiliaConfig = {
+        fancybox: true,
+        animate: true,
+        isHome: false,
+        isPost: true,
+        isArchive: false,
+        isTag: false,
+        isCategory: false,
+        fancybox_js: "//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.js",
+        scrollreveal: "//cdn.bootcss.com/scrollReveal.js/3.1.4/scrollreveal.min.js",
+        search: undefined
+    }
+</script>
+
+
+    <script>
+        yiliaConfig.jquery_ui = [true, "//cdn.bootcss.com/jqueryui/1.10.4/jquery-ui.min.js", "//cdn.bootcss.com/jqueryui/1.10.4/css/jquery-ui.min.css"];
+    </script>
+
+
+
+    <script> yiliaConfig.rootUrl = "\/";</script>
+
+
+
+
+
+
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            <img src="/img/sdz.jpg" class="animated zoomIn">
+        </a>
+        <hgroup>
+          <h1 class="header-author"><a href="/">Lynn</a></h1>
+        </hgroup>
+
+        
+
+        
+
+
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        <div class="icon-wrap icon-link hide" data-idx="2">
+                            <div class="loopback_l"></div>
+                            <div class="loopback_r"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜单</li>
+                        <li>标签</li>
+                        
+                        <li>友情链接</li>
+                        
+                        
+                        <li>关于我</li>
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="/">主页</a></li>
+                        
+                            <li><a href="/archives">所有文章</a></li>
+                        
+                            <li><a href="/tags">标签云</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa Email" href="mailto:824230528@qq.com" title="Email"></a>
+                            
+                                <a class="fa GitHub" href="https://github.com/" title="GitHub"></a>
+                            
+                                <a class="fa QQ" href="/" title="QQ"></a>
+                            
+                                <a class="fa 微信" href="/" title="微信"></a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/angularJS/">angularJS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/app/">app</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css/">css</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/github/">github</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jquery/">jquery</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/js/">js</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/markdown/">markdown</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/seajs/">seajs</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue/">vue</a></li></ul>
+                    </div>
+                </section>
+                
+                
+                
+                <section class="switch-part switch-part3">
+                    <div id="js-friends">
+                    
+                      <a class="main-nav-link switch-friends-link" href="https://hexo.io">Hexo</a>
+                    
+                      <a class="main-nav-link switch-friends-link" href="https://pages.github.com/">GitHub</a>
+                    
+                    </div>
+                </section>
+                
+
+                
+                
+                <section class="switch-part switch-part4">
+                
+                    <div id="js-aboutme">专注于前端</div>
+                </section>
+                
+            </div>
+        </div>
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">Lynn</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                <img src="/img/sdz.jpg" class="animated zoomIn">
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="回到主页">Lynn</a></h1>
+            </hgroup>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/">主页</a></li>
+                
+                    <li><a href="/archives">所有文章</a></li>
+                
+                    <li><a href="/tags">标签云</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa Email" target="_blank" href="mailto:824230528@qq.com" title="Email"></a>
+                            
+                                <a class="fa GitHub" target="_blank" href="https://github.com/" title="GitHub"></a>
+                            
+                                <a class="fa QQ" target="_blank" href="/" title="QQ"></a>
+                            
+                                <a class="fa 微信" target="_blank" href="/" title="微信"></a>
+                            
+                        </ul>
+            </nav>
+        </header>                
+    </div>
+    <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
+</nav>
+      <div class="body-wrap"><article id="post-jQuery的动画效果" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/11/22/jQuery的动画效果/" class="article-date">
+      <time datetime="2017-11-22T12:42:43.000Z" itemprop="datePublished">2017-11-22</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      jQuery的动画效果
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/jquery/">jquery</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h2 id="jQuery的动画效果"><a href="#jQuery的动画效果" class="headerlink" title="jQuery的动画效果"></a>jQuery的动画效果</h2><h3 id="show-显示效果"><a href="#show-显示效果" class="headerlink" title="show()显示效果"></a>show()显示效果</h3><p>　　语法：show(speed,callback)　　Number/String,Function　speend为动画执行时间，单位为毫秒。也可以为slow”,”normal”,”fast”　callback可选,为当动画完成时执行的函数。<br>　　　　   show(speed,[easing],callback)　　Number/String　　easing默认是swing,可选linear;<br>　　　　　$(“#div1”).show(3000,function(){ alert(“动画显示完成!”); });　　
+　　　　</p>
+<h3 id="hide-隐藏效果"><a href="#hide-隐藏效果" class="headerlink" title="hide()隐藏效果"></a>hide()隐藏效果</h3><p>　　语法:hide(speed,callback)　　Number/String,Function<br>　　　　 hide(speed,easing,callback)　　Number/String<br>　　　　 $(“#div1”).hide(3000,function(){ alert(“动画隐藏完成”) });</p>
+<h3 id="toggle-隐藏显示自动切换，当目前为显示则隐藏，当目前为隐藏则显示"><a href="#toggle-隐藏显示自动切换，当目前为显示则隐藏，当目前为隐藏则显示" class="headerlink" title="toggle()隐藏显示自动切换，当目前为显示则隐藏，当目前为隐藏则显示"></a>toggle()隐藏显示自动切换，当目前为显示则隐藏，当目前为隐藏则显示</h3><p>　　语法：toggle(speed,callback)　　Number/String,Function<br>　　　　   toggle(speed,callback)　　Number/String,String,Function<br>　　　　   $(“#div1”).toggle(3000,function(){ alert(“动画效果切换完成”) });
+　　　　　</p>
+<h3 id="slideDown-向下显示，slow-是水平与垂直方向同时展开，而slideDown是仅仅在垂直方向向下展开"><a href="#slideDown-向下显示，slow-是水平与垂直方向同时展开，而slideDown是仅仅在垂直方向向下展开" class="headerlink" title="slideDown()向下显示，slow()是水平与垂直方向同时展开，而slideDown是仅仅在垂直方向向下展开"></a>slideDown()向下显示，slow()是水平与垂直方向同时展开，而slideDown是仅仅在垂直方向向下展开</h3><p>　  语法:slideDown(speed,callback)　　Number/String,Function<br>　　　　 slideDown(speed,[easing],callback)　　Number/String,Function<br>　　　　 $(“#div1”).slideDown(3000,function(){ alert(“向下展开显示成功!”); });</p>
+<h3 id="slideUp-向上隐藏-hide-是水平与垂直两个方向的，而slideUp-仅仅是垂直方向向上收起隐藏"><a href="#slideUp-向上隐藏-hide-是水平与垂直两个方向的，而slideUp-仅仅是垂直方向向上收起隐藏" class="headerlink" title="slideUp()向上隐藏,　　hide()是水平与垂直两个方向的，而slideUp()仅仅是垂直方向向上收起隐藏"></a>slideUp()向上隐藏,　　hide()是水平与垂直两个方向的，而slideUp()仅仅是垂直方向向上收起隐藏</h3><p>　　语法:slideUp(speed,callback)　　Number/String,Function<br>　　　　 slideUp(speed,[easing],callback)　　Number/String,String,Function<br>　　　　 $(“#div1”).slideUp(3000,function(){ alert(“向上收起隐藏成功!”); })</p>
+<h3 id="slideToggle垂直方向上切换-toggle是水平与垂直两个方向上的，而slideToggle是仅仅垂直方向的。"><a href="#slideToggle垂直方向上切换-toggle是水平与垂直两个方向上的，而slideToggle是仅仅垂直方向的。" class="headerlink" title="slideToggle垂直方向上切换,toggle是水平与垂直两个方向上的，而slideToggle是仅仅垂直方向的。"></a>slideToggle垂直方向上切换,toggle是水平与垂直两个方向上的，而slideToggle是仅仅垂直方向的。</h3><p>　　语法:slideToggle(speed,callback)　　Number/String,Function<br>　　　　 slideToggle(speed,[easing],callback)　　Number/String,String,Function<br>　　　　 $(“#div1”).slideToggle(3000,function(){ alert(“水平方向上切换成功”); });
+　　　　</p>
+<h3 id="fadeIn-以改变透明度来显示"><a href="#fadeIn-以改变透明度来显示" class="headerlink" title="fadeIn() 以改变透明度来显示"></a>fadeIn() 以改变透明度来显示</h3><p>　　语法：fadeIn(speed,callback)　　　　Number/String,Function<br>　　　　   fadeIn(speed,[easing],callback)　　Number/String,Function<br>　　　　　$(“#div1”).FadeIn(3000,function(){ alert(“淡入显示成功!”); });</p>
+<h3 id="fadeOut-以改变透明度来隐藏"><a href="#fadeOut-以改变透明度来隐藏" class="headerlink" title="fadeOut() 以改变透明度来隐藏"></a>fadeOut() 以改变透明度来隐藏</h3><p>　　语法：fadeOut(speed,callback)　　   Number/String,Function<br>　　　　   fadeOut(speed,[easing],callcack)　　   Number/String,String,Function<br>　　　　   $(“#div1”).fadeOut(3000,function(){ alert(“淡出隐藏成功!”); });</p>
+<h3 id="fadeToggle-以改变透明度来切换显示隐藏状态"><a href="#fadeToggle-以改变透明度来切换显示隐藏状态" class="headerlink" title="fadeToggle() 以改变透明度来切换显示隐藏状态"></a>fadeToggle() 以改变透明度来切换显示隐藏状态</h3><p>　　语法: fadeToggle(speed,callback)　　Number/String,Function<br>　　　　  fadeToggle(speed,[easing],callback)　　　　Number/String,Function<br>　　　　  $(“#div1”).fadeToggle(3000,function(){ alert(“淡入淡出切换成功!”); });</p>
+<h3 id="fadeTo-由指定的时间将透明度改变到指定的透明度"><a href="#fadeTo-由指定的时间将透明度改变到指定的透明度" class="headerlink" title="fadeTo() 由指定的时间将透明度改变到指定的透明度"></a>fadeTo() 由指定的时间将透明度改变到指定的透明度</h3><p>　　语法：fadeTo(speed,callback)　　　　Number/String,Function<br>　　　　　fadeTo([speed],opacity,[easing],[fn])　　Number/String,Float,String,Function<br>　　　　　$(“#div1”).fadeTo(3000,0.22,function(){ alert(“透明度改变成功!”); });</p>
+<h3 id="animate-自定义动画，一般来说数字变动都可以用于动画。"><a href="#animate-自定义动画，一般来说数字变动都可以用于动画。" class="headerlink" title="animate() 自定义动画，一般来说数字变动都可以用于动画。"></a>animate() 自定义动画，一般来说数字变动都可以用于动画。</h3><p>　　语法：animate(params,speed,easing,callback);　　样式参数，时间，可选择，函数<br>　　　　　$(“#div1”).animate({ width:300px,height,300px },3000);<br>　　　　　其中params要用中括号括起来，可以使用的css样式参数。注意要采用骆驼法则，如font-size要写成fontSize。颜色渐变不支持。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div></pre></td><td class="code"><pre><div class="line">backgroundPosition</div><div class="line">borderWidth</div><div class="line">borderBottomWidth</div><div class="line">borderLeftWidth</div><div class="line">borderRightWidth</div><div class="line">borderTopWidth</div><div class="line">borderSpacing</div><div class="line">margin</div><div class="line">marginBottom</div><div class="line">marginLeft</div><div class="line">marginRight</div><div class="line">marginTop</div><div class="line">outlineWidth</div><div class="line">padding</div><div class="line">paddingBottom</div><div class="line">paddingLeft</div><div class="line">paddingRight</div><div class="line">paddingTop</div><div class="line">height</div><div class="line">width</div><div class="line">maxHeight</div><div class="line">maxWidth</div><div class="line">minHeight</div><div class="line">maxWidth</div><div class="line">font</div><div class="line">fontSize</div><div class="line">bottom</div><div class="line">left</div><div class="line">right</div><div class="line">top</div><div class="line">letterSpacing</div><div class="line">wordSpacing</div><div class="line">lineHeight</div><div class="line">textIndent</div></pre></td></tr></table></figure></p>
+<h3 id="stop-停止正在执行动画"><a href="#stop-停止正在执行动画" class="headerlink" title="stop() 停止正在执行动画"></a>stop() 停止正在执行动画</h3><p>　　 stop([clearQueue],[gotoEnd]);　　两个参数均为布尔值，第一个表示，是否停止动画执行### 第二个表示，如果停止，是否立即变为执行完成的状态，如果设置为否，则停留在执行一半的状态。<br>　　$(“#div1”).hide(5000)　　//此动画正在执行<br>　　$(“#div1”).stop();　　　　//上一行代码指定的动画停止在一半状态<br>　　$(“#div1”).stop(true,true);　　//停止当前动画，同时动画切换到完成执行状态。</p>
+<h3 id="delay-延迟执行动画"><a href="#delay-延迟执行动画" class="headerlink" title="delay() 延迟执行动画　　"></a>delay() 延迟执行动画　　</h3><p>当一个动画stop()了之后还能够用delay()来延迟执行。从停止位置继续执行。当然用原来的方法继续执行也不可，不过没有延时效果。<br>　　delay(duration,[queueName])　　设置一个延迟值来执行动画　　Integer,String<br>　　$(“#div1”).delay(3000).hide(3000);　　//表示在3000毫秒后执行hide(3000);</p>
+<h3 id="jQuery-fx-off"><a href="#jQuery-fx-off" class="headerlink" title="jQuery.fx.off　　"></a>jQuery.fx.off　　</h3><p>//该属性只是是否关闭当前页面上的动画,关闭动画之后，没有动画效果，所有设置了执行时间的动画会瞬间完成。注意此属性出现的位置。出现的位置不同影响的范围也不同。<br>　　<figure class="highlight javascript"><figcaption><span>$(function()&#123;</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">    　　　　jQuery.fx.off = <span class="literal">true</span>;　　<span class="comment">//属性在事件外面，对页面加载后执行的所有动画有效</span></div><div class="line">    　　　　$(<span class="string">"#div1"</span>).click(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;　　<span class="comment">//属性如果写在这里，仅仅对当前点击事件无效，不影响其他事件的动画</span></div><div class="line">    　　　　　　$(<span class="string">"#div1"</span>).hide(<span class="number">3000</span>);　　<span class="comment">//注意由于jQuery.fx.off设置为了true,因此3000毫秒失效，相当于hide();</span></div><div class="line">    　　　　 &#125;);</div><div class="line">    　　&#125;)</div></pre></td></tr></table></figure></p>
+<h3 id="jQuery-fx-interval"><a href="#jQuery-fx-interval" class="headerlink" title="jQuery.fx.interval　　"></a>jQuery.fx.interval　　</h3><p>//该属性设置动画的帧速，单位是毫秒，如果设置的时间越小，就越平滑。，属性出现的位置同样有影响范围<br>　　 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">$(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    　　　　jQuery.fx.interval = <span class="number">1000</span>;</div><div class="line">    　　　　$(<span class="string">"#div1"</span>).click(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;　　</div><div class="line">    　　　　　　$(<span class="string">"#div1"</span>).hide(<span class="number">3000</span>);　　　<span class="comment">//jQuery.fx.interval设置为1000，也就是1秒钟，改变一次效果。　</span></div><div class="line">    　　　　 &#125;);</div><div class="line">　　    &#125;)</div></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+
+
+    <nav id="article-nav">
+        
+            <div id="article-nav-newer" class="article-nav-title">
+                <a href="/2017/11/22/vuejs基础内容/">
+                    vuejs基础内容
+                </a>
+            </div>
+        
+        
+            <div id="article-nav-older" class="article-nav-title">
+                <a href="/2017/11/22/css3-动画效果实现方法大大全/">
+                    css3 动画效果实现方法大大全
+                </a>
+            </div>
+        
+    </nav>
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+        <strong class="toc-title">文章目录</strong>
+        
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#jQuery的动画效果"><span class="toc-number">1.</span> <span class="toc-text">jQuery的动画效果</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#show-显示效果"><span class="toc-number">1.1.</span> <span class="toc-text">show()显示效果</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#hide-隐藏效果"><span class="toc-number">1.2.</span> <span class="toc-text">hide()隐藏效果</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#toggle-隐藏显示自动切换，当目前为显示则隐藏，当目前为隐藏则显示"><span class="toc-number">1.3.</span> <span class="toc-text">toggle()隐藏显示自动切换，当目前为显示则隐藏，当目前为隐藏则显示</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#slideDown-向下显示，slow-是水平与垂直方向同时展开，而slideDown是仅仅在垂直方向向下展开"><span class="toc-number">1.4.</span> <span class="toc-text">slideDown()向下显示，slow()是水平与垂直方向同时展开，而slideDown是仅仅在垂直方向向下展开</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#slideUp-向上隐藏-hide-是水平与垂直两个方向的，而slideUp-仅仅是垂直方向向上收起隐藏"><span class="toc-number">1.5.</span> <span class="toc-text">slideUp()向上隐藏,　　hide()是水平与垂直两个方向的，而slideUp()仅仅是垂直方向向上收起隐藏</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#slideToggle垂直方向上切换-toggle是水平与垂直两个方向上的，而slideToggle是仅仅垂直方向的。"><span class="toc-number">1.6.</span> <span class="toc-text">slideToggle垂直方向上切换,toggle是水平与垂直两个方向上的，而slideToggle是仅仅垂直方向的。</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#fadeIn-以改变透明度来显示"><span class="toc-number">1.7.</span> <span class="toc-text">fadeIn() 以改变透明度来显示</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#fadeOut-以改变透明度来隐藏"><span class="toc-number">1.8.</span> <span class="toc-text">fadeOut() 以改变透明度来隐藏</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#fadeToggle-以改变透明度来切换显示隐藏状态"><span class="toc-number">1.9.</span> <span class="toc-text">fadeToggle() 以改变透明度来切换显示隐藏状态</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#fadeTo-由指定的时间将透明度改变到指定的透明度"><span class="toc-number">1.10.</span> <span class="toc-text">fadeTo() 由指定的时间将透明度改变到指定的透明度</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#animate-自定义动画，一般来说数字变动都可以用于动画。"><span class="toc-number">1.11.</span> <span class="toc-text">animate() 自定义动画，一般来说数字变动都可以用于动画。</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#stop-停止正在执行动画"><span class="toc-number">1.12.</span> <span class="toc-text">stop() 停止正在执行动画</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#delay-延迟执行动画"><span class="toc-number">1.13.</span> <span class="toc-text">delay() 延迟执行动画　　</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#jQuery-fx-off"><span class="toc-number">1.14.</span> <span class="toc-text">jQuery.fx.off　　</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#jQuery-fx-interval"><span class="toc-number">1.15.</span> <span class="toc-text">jQuery.fx.interval　　</span></a></li></ol></li></ol>
+        
+    </div>
+    <style>
+        .left-col .switch-btn,
+        .left-col .switch-area {
+            display: none;
+        }
+        .toc-level-3 i,
+        .toc-level-3 ol {
+            display: none !important;
+        }
+    </style>
+
+    <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+
+    <script>
+        yiliaConfig.toc = ["隐藏目录", "显示目录", !!"false"];
+    </script>
+
+
+
+    
+<div class="share">
+    
+        <div class="bdsharebuttonbox">
+            <a href="#" class="fa fa-twitter bds_twi" data-cmd="twi" title="分享到推特"></a>
+            <a href="#" class="fa fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+            <a href="#" class="fa fa-qq bds_sqq" data-cmd="sqq" title="分享给 QQ 好友"></a>
+            <a href="#" class="fa fa-files-o bds_copy" data-cmd="copy" title="复制网址"></a>
+            <a href="#" class="fa fa fa-envelope-o bds_mail" data-cmd="mail" title="通过邮件分享"></a>
+            <a href="#" class="fa fa-weixin bds_weixin" data-cmd="weixin" title="生成文章二维码"></a>
+            <a href="#" class="fa fa-share-alt bds_more" data-cmd="more"></i></a>
+        </div>
+        <script>
+            window._bd_share_config={
+                "common":{"bdSnsKey":{},"bdText":"jQuery的动画效果　| Lynn's Blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+        </script>
+    
+
+    
+</div>
+
+
+
+
+
+
+
+    
+
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/2017/11/22/vuejs基础内容/" title="上一篇: vuejs基础内容">
+                <i class="fa fa-angle-left"></i>
+            </a>
+        
+
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+
+        
+            <a href="/2017/11/22/css3-动画效果实现方法大大全/" title="下一篇: css3 动画效果实现方法大大全">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2017/11/23/vuejs组件化应用/">vuejs组件化应用</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/11/22/vuejs基础内容/">vuejs基础内容</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/11/22/jQuery的动画效果/">jQuery的动画效果</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/11/22/css3-动画效果实现方法大大全/">css3 动画效果实现方法大大全</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/11/02/开发中遇到的问题/">开发中遇到的问题</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/22/H5页面在app端滑动，显示问题/">H5页面在app端滑动，显示问题</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/12/如何在GitHub-Pages搭建自己写的页面/">如何在GitHub Pages搭建自己写的页面</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/10/JS瀑布流布局模式/">JS瀑布流布局模式</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/10/倒计时/">倒计时</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/09/兼容性问题/">兼容性问题</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/20/seajs的使用/">seajs的使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/13/angularJS自定义指令/">angularJS自定义指令</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/08/angularJS模板中常用指令/">angularJS模板中常用指令</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/29/angularJS过滤器详解/">angularJS-filter过滤器详解</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/26/angularJS指令详解/">angularJS-direction指令的API</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/12/css动画/">CSS动画</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/12/jsonp/">jsonp</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/11/循环遍历/">循环遍历</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/02/markdown的使用/">markdown常用语法</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/01/搭建hexo中遇到的问题/">搭建hexo，出现的问题</a></li></ul>
+
+
+
+
+    <script>
+        
+    </script>
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                <i class="fa fa-copyright"></i> 
+                2016-2017 Lynn
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank" title="快速、简洁且高效的博客框架">Hexo</a>  Theme Yelee by Lynn <i class="fa fa-heart animated infinite pulse"></i>
+            </div>
+        </div>
+        
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style='display:none'>
+                        <span id="site-visit" title="本站到访数"><i class="fa fa-user" aria-hidden="true"></i><span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>| </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style='display:none'>
+                        <span id="page-visit"  title="本页阅读量"><i class="fa fa-eye animated infinite pulse" aria-hidden="true"></i><span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
+        
+    </div>
+</footer>
+    </div>
+    
+<script data-main="/js/main.js" src="//cdn.bootcss.com/require.js/2.2.0/require.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var iPad = window.navigator.userAgent.indexOf('iPad');
+            if (iPad > -1 || $(".left-col").css("display") === "none") {
+                var bgColorList = ["#9db3f4", "#414141", "#e5a859", "#f5dfc6", "#c084a0", "#847e72", "#cd8390", "#996731"];
+                var bgColor = Math.ceil(Math.random() * (bgColorList.length - 1));
+                $("body").css({"background-color": bgColorList[bgColor], "background-size": "cover"});
+            }
+            else {
+                var backgroundnum = 1;
+                var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+                $("body").css({"background": backgroundimg, "background-attachment": "fixed", "background-size": "cover"});
+            }
+        })
+    </script>
+
+
+
+
+
+<div class="scroll" id="scroll">
+    <a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments" onclick="load$hide();" title="查看评论"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    // Open in New Window
+    
+        var oOpenInNew = {
+            
+            
+            
+            
+            
+            
+             archives: ".archive-article-title", 
+             miniArchives: "a.post-list-link", 
+            
+             friends: "#js-friends a", 
+             socail: ".social a" 
+        }
+        for (var x in oOpenInNew) {
+            $(oOpenInNew[x]).attr("target", "_blank");
+        }
+    
+</script>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+  </div>
+</body>
+</html>
